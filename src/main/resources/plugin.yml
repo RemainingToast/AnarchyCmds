@@ -9,3 +9,9 @@ commands:
     description: Teleport to spawn
   kill:
     description: Start over
+  gmc:
+    description: ""
+  gms:
+    description: ""
+  gmsp:
+    description: ""
