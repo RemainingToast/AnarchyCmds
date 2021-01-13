@@ -18,7 +18,7 @@ public class KillCommand implements CommandExecutor {
         Player p = (Player) sender;
         if(plugin.getConfig().getBoolean("commands.kill.enabled")){
             if(p != null){
-                p.setHealth(-0.1);
+                p.setHealth(0);
                 return true;
             }
         }
