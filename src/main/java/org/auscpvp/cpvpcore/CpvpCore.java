@@ -1,5 +1,6 @@
 package org.auscpvp.cpvpcore;
 
+import org.auscpvp.cpvpcore.commands.KillCommand;
 import org.auscpvp.cpvpcore.commands.SpawnCommand;
 import org.auscpvp.cpvpcore.listeners.ConnectionEvents;
 import org.bukkit.plugin.PluginManager;
@@ -13,6 +14,9 @@ public final class CpvpCore extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         pluginManager.registerEvents(new ConnectionEvents(this), this);
+
+        //Commands | A-Z
+        getCommand("kill").setExecutor(new KillCommand(this));
         getCommand("spawn").setExecutor(new SpawnCommand(this));
     }
 

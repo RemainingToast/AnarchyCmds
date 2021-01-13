@@ -21,18 +21,13 @@ public class ConnectionEvents implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         Player p = e.getPlayer();
-        if(plugin.getConfig().getBoolean("connectionmsgs.enabled")){
-            String configMsg = plugin.getConfig().getString("connectionmsgs.joinmessage");
-            String joinMsg = "";
-            if (configMsg != null) {
-                joinMsg = ChatColor.translateAlternateColorCodes('&', configMsg.replace("%player%", p.getName()));
-            }
-            if(plugin.getConfig().getBoolean("connectionmsgs.firstjoinalert")){
-                String configMsg1 = plugin.getConfig().getString("connectionmsgs.firstjoinmessage");
-                String firstJoinMsg = "";
-                if (configMsg1 != null) {
-                    firstJoinMsg = ChatColor.translateAlternateColorCodes('&', configMsg1.replace("%player%", p.getName()));
-                }
+        boolean enabled = !plugin.getConfig().getString("messages.join-message").isEmpty();
+        if(enabled){
+            String str = plugin.getConfig().getString("messages.join-message");
+            String joinMsg = ChatColor.translateAlternateColorCodes('&', str.replace("%player%", p.getName()));;
+            boolean enabled1 = !plugin.getConfig().getString("messages.first-join-message").isEmpty();
+            if(enabled1){
+                String firstJoinMsg = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("messages.first-join-message").replace("%player%", p.getName()));
                 if(!p.hasPlayedBefore()){
                     for(Player online : Bukkit.getOnlinePlayers()){
                         online.sendMessage(firstJoinMsg);
@@ -41,17 +36,16 @@ public class ConnectionEvents implements Listener {
             }
             e.setJoinMessage(joinMsg);
         }
-        if(plugin.getConfig().getBoolean("spawnteleport.onjoin")){
-            String str = plugin.getConfig().getString("spawnteleport.world");
-            if(str != null){
-                World w = Bukkit.getServer().getWorld(str);
-                if(w != null){
-                    double x = plugin.getConfig().getDouble("spawnteleport.x");
-                    double y = plugin.getConfig().getDouble("spawnteleport.y");
-                    double z = plugin.getConfig().getDouble("spawnteleport.z");
-                    float yaw = plugin.getConfig().getInt("spawnteleport.yaw");
-                    p.teleport(new Location(w, x, y, z, yaw, 0));
-                }
+        if(plugin.getConfig().getBoolean("commands.spawn.teleport-onjoin")){
+            try {
+                World w = Bukkit.getServer().getWorld(plugin.getConfig().getString("commands.spawn.location.world"));
+                double x = plugin.getConfig().getDouble("commands.spawn.location.x");
+                double y = plugin.getConfig().getDouble("commands.spawn.location.y");
+                double z = plugin.getConfig().getDouble("commands.spawn.location.z");
+                float yaw = plugin.getConfig().getInt("commands.spawn.location.yaw");
+                p.teleport(new Location(w, x, y, z, yaw, 0));
+            } catch (Exception ex){
+
             }
         }
     }

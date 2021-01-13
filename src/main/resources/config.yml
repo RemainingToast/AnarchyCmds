@@ -1,0 +1,17 @@
+commands:
+  spawn:
+    player-command: true
+    teleport-onjoin: true
+    teleport-ondeath: true
+    location:
+      x:
+      y:
+      z:
+      yaw:
+      world:
+  kill:
+    enabled: true
+messages:
+  first-join-message: ''
+  join-message: ''
+  quit-message: ''

@@ -4,3 +4,8 @@ main: org.auscpvp.cpvpcore.CpvpCore
 api-version: 1.16
 prefix: CpvpCore
 authors: [ RemainingToast ]
+commands:
+  spawn:
+    description: Teleport to spawn
+  kill:
+    description: Start over
