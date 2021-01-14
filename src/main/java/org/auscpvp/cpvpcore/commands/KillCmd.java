@@ -21,6 +21,9 @@ public class KillCmd implements CommandExecutor {
                 p.setHealth(0);
                 return true;
             }
+        } else {
+            String str = plugin.getConfig().getString("messages.command-disabled");
+            sender.sendMessage(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', str));
         }
         return false;
     }

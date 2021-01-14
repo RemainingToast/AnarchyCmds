@@ -82,10 +82,12 @@ public class ConnectionEvents implements Listener , CommandExecutor {
                     Player p = (Player) sender;
                     String id = p.getUniqueId().toString();
                     if(toggled.get(id)){
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("toggle-connection-msgs.off-msg")));
+                        String off = plugin.getConfig().getString("toggle-connection-msgs.off-msg");
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', off));
                         toggled.replace(id, false);
                     } else {
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("toggle-connection-msgs.on-msg")));
+                        String on = plugin.getConfig().getString("toggle-connection-msgs.on-msg");
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', on));
                         toggled.replace(id, true);
                     }
                     return true;

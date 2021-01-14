@@ -18,9 +18,14 @@ public class HelpCmd implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        List<String> lines = plugin.getConfig().getStringList("help.message");
-        String str = String.join("\n", lines);
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
+        if(plugin.getConfig().getBoolean("help.enabled")){
+            List<String> lines = plugin.getConfig().getStringList("help.message");
+            String str = String.join("\n", lines);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
+        } else {
+            String str = plugin.getConfig().getString("messages.command-disabled");
+            sender.sendMessage(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', str));
+        }
         return true;
     }
 }

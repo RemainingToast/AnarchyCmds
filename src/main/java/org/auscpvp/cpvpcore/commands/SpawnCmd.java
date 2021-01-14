@@ -40,6 +40,9 @@ public class SpawnCmd implements CommandExecutor {
                         p.teleport(loc);
                     }
                 } catch (Exception ignored) {}
+            } else {
+                String str = plugin.getConfig().getString("messages.command-disabled");
+                sender.sendMessage(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', str));
             }
         } else if(args[0].equalsIgnoreCase("set")){
             if (p.hasPermission("cpvpcore.setspawn")) {
