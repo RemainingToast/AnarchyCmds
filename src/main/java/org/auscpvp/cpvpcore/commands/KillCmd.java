@@ -1,6 +1,7 @@
 package org.auscpvp.cpvpcore.commands;
 
 import org.auscpvp.cpvpcore.CpvpCore;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,7 +24,7 @@ public class KillCmd implements CommandExecutor {
             }
         } else {
             String str = plugin.getConfig().getString("messages.command-disabled");
-            sender.sendMessage(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', str));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
         }
         return false;
     }

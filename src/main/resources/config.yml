@@ -1,3 +1,4 @@
+prefix: "&8[&2&lCpvp&4&lCore&r&8]&r "
 gamemode-aliases:
   enabled: true
 toggle-connection-msgs:
@@ -7,9 +8,12 @@ toggle-connection-msgs:
 help:
   enabled: true
   message:
-    - ""
-    - ""
-    - ""
+    - "&6-----------------------------------------------------"
+    - "&3/spawn teleport to spawn"
+    - "&3/toggleconnectionmsgs to toggle join and leave messages."
+    - "&3/kill to kill yourself."
+    - "&3/cpvpcore help for more admin help"
+    - "&6-----------------------------------------------------"
 kill:
   enabled: true
 spawn:
@@ -23,11 +27,32 @@ spawn:
     yaw:
     world:
   messages:
-    first-join-message: "&b%player% has connected for the first time"
-    join-message: "&7%player% connected"
-    quit-message: "&7%player% disconnected"
+    first-join-message: "&b%player% joined for the first time"
+    join-message: "&7%player% joined the game"
+    quit-message: "&7%player% has left the game"
 only-proxy-join:
   enabled: true
   whitelist:
     - 127.0.0.1
   kick-message: '&cYou have to join through the proxy.'
+illegal-items:
+  remove-overstacked: true
+  remove-potions: true
+  checks:
+    chunk-load: true
+    inventory: true
+    pickup: true
+    hopper-move: true
+    block-place: true
+  blacklist:
+    - "BEDROCK"
+    - "COMMAND_REPEATING"
+    - "COMMAND_MINECART"
+    - "COMMAND_CHAIN"
+    - "COMMAND"
+    - "ENDER_PORTAL_FRAME"
+    - "KNOWLEDGE_BOOK"
+    - "MOB_SPAWNER"
+    - "PORTAL"
+    - "STRUCTURE_BLOCK"
+    - "STRUCTURE_VOID"
