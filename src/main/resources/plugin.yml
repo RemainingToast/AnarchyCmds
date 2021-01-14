@@ -8,7 +8,7 @@ commands:
   toggleconnectionmsgs:
     description: Enable/Disable player connection messages.
   cpvpcore:
-    description: Core command do /cpvpcore help for more info.
+    description: Core command, do /cpvpcore help
   spawn:
     description: Teleport to spawn
   kill:

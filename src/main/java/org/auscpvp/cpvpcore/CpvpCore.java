@@ -11,6 +11,7 @@ import java.util.List;
 
 public final class CpvpCore extends JavaPlugin {
 
+    ConnectionEvents connectionEvents = new ConnectionEvents(this);
     private final PluginManager pluginManager = getServer().getPluginManager();
 
     @Override
@@ -19,13 +20,14 @@ public final class CpvpCore extends JavaPlugin {
 
         pluginManager.registerEvents(new ConnectionEvents(this), this);
 
-        getCommand("toggleconnectionmsgs").setExecutor(new ConnectionEvents(this));
+        getCommand("toggleconnectionmsgs").setExecutor(connectionEvents);
         getCommand("kill").setExecutor(new KillCmd(this));
         getCommand("spawn").setExecutor(new SpawnCmd(this));
         getCommand("gmc").setExecutor(new GmcCmd(this));
         getCommand("gms").setExecutor(new GmsCmd(this));
         getCommand("gmsp").setExecutor(new GmspCmd(this));
         getCommand("help").setExecutor(new HelpCmd(this));
+        getCommand("cpvpcore").setExecutor(new CoreCmd(this));
     }
 
     @Override

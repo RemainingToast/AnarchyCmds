@@ -19,7 +19,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import java.net.InetAddress;
 import java.util.HashMap;
 
-public class ConnectionEvents implements Listener , CommandExecutor {
+public class ConnectionEvents implements Listener,CommandExecutor {
 
     HashMap<String, Boolean> toggled = new HashMap<>();
 

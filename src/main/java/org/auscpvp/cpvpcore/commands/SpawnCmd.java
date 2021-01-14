@@ -1,8 +1,8 @@
 package org.auscpvp.cpvpcore.commands;
 
-import net.md_5.bungee.api.ChatColor;
 import org.auscpvp.cpvpcore.CpvpCore;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.Command;
@@ -37,7 +37,7 @@ public class SpawnCmd implements CommandExecutor {
                 } catch (Exception ignored) {}
             } else {
                 String str = plugin.getConfig().getString("messages.command-disabled");
-                sender.sendMessage(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', str));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
             }
         } else if(args[0].equalsIgnoreCase("set")){
             if (p.hasPermission("cpvpcore.setspawn")) {

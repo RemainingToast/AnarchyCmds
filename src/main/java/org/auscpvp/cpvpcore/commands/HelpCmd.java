@@ -24,7 +24,7 @@ public class HelpCmd implements CommandExecutor {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
         } else {
             String str = plugin.getConfig().getString("messages.command-disabled");
-            sender.sendMessage(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', str));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
         }
         return true;
     }
