@@ -6,23 +6,22 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class GmspCmd implements CommandExecutor {
+public class KillCmd implements CommandExecutor {
 
     CpvpCore plugin;
-
-    public GmspCmd(CpvpCore plugin) {
+    public KillCmd(CpvpCore plugin){
         this.plugin = plugin;
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(plugin.getConfig().getBoolean("gamemode-aliases.enabled")){
-            if(sender instanceof Player){
-                Player p = (Player) sender;
-                p.performCommand("gamemode spectator");
+        Player p = (Player) sender;
+        if(plugin.getConfig().getBoolean("kill.enabled")){
+            if(p != null){
+                p.setHealth(0);
+                return true;
             }
         }
         return false;
     }
-
 }

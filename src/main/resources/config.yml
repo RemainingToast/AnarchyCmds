@@ -1,17 +1,28 @@
-commands:
-  spawn:
-    player-command: true
-    teleport-onjoin: true
-    teleport-ondeath: true
-    location:
-      x:
-      y:
-      z:
-      yaw:
-      world:
-  kill:
-    enabled: true
-messages:
-  first-join-message: ''
-  join-message: ''
-  quit-message: ''
+gamemode-aliases:
+  enabled: true
+toggle-connection-msgs:
+  enabled: true
+  on-msg: "&aConnection messages are now SHOWN"
+  off-msg: "&cConnection messages are now HIDDEN"
+help:
+  enabled: true
+  message:
+    - ""
+    - ""
+    - ""
+kill:
+  enabled: true
+spawn:
+  enabled: true
+  teleport-onjoin: true
+  teleport-ondeath: true
+  location:
+    x:
+    y:
+    z:
+    yaw:
+    world:
+  messages:
+    first-join-message: "&b%player% has connected for the first time"
+    join-message: "&7%player% connected"
+    quit-message: "&7%player% disconnected"

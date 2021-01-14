@@ -5,6 +5,10 @@ api-version: 1.16
 prefix: CpvpCore
 authors: [ RemainingToast ]
 commands:
+  toggleconnectionmsgs:
+    description: Enable/Disable player connection messages.
+  cpvpcore:
+    description: Core command do /cpvpcore help for more info.
   spawn:
     description: Teleport to spawn
   kill:
@@ -14,4 +18,6 @@ commands:
   gms:
     description: ""
   gmsp:
+    description: ""
+  help:
     description: ""
