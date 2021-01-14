@@ -1,6 +1,5 @@
 package org.auscpvp.cpvpcore.commands;
 
-import io.papermc.lib.PaperLib;
 import net.md_5.bungee.api.ChatColor;
 import org.auscpvp.cpvpcore.CpvpCore;
 import org.bukkit.Bukkit;
@@ -34,11 +33,7 @@ public class SpawnCmd implements CommandExecutor {
                     double z = plugin.getConfig().getDouble("spawn.location.z");
                     float yaw = plugin.getConfig().getInt("spawn.location.yaw");
                     Location loc = new Location(w, x, y, z, yaw, 0);
-                    if(PaperLib.isPaper()){
-                        PaperLib.teleportAsync(p, loc);
-                    } else {
-                        p.teleport(loc);
-                    }
+                    p.teleport(loc);
                 } catch (Exception ignored) {}
             } else {
                 String str = plugin.getConfig().getString("messages.command-disabled");

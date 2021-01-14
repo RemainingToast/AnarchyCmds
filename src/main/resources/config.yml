@@ -26,3 +26,8 @@ spawn:
     first-join-message: "&b%player% has connected for the first time"
     join-message: "&7%player% connected"
     quit-message: "&7%player% disconnected"
+only-proxy-join:
+  enabled: true
+  whitelist:
+    - 127.0.0.1
+  kick-message: '&cYou have to join through the proxy.'

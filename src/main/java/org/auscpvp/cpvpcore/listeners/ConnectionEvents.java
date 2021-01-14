@@ -10,10 +10,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import java.net.InetAddress;
 import java.util.HashMap;
 
 public class ConnectionEvents implements Listener , CommandExecutor {
@@ -83,10 +86,12 @@ public class ConnectionEvents implements Listener , CommandExecutor {
                     String id = p.getUniqueId().toString();
                     if(toggled.get(id)){
                         String off = plugin.getConfig().getString("toggle-connection-msgs.off-msg");
+                        System.out.println("off:" + off);
                         p.sendMessage(ChatColor.translateAlternateColorCodes('&', off));
                         toggled.replace(id, false);
                     } else {
                         String on = plugin.getConfig().getString("toggle-connection-msgs.on-msg");
+                        System.out.println("on:" + on);
                         p.sendMessage(ChatColor.translateAlternateColorCodes('&', on));
                         toggled.replace(id, true);
                     }
@@ -97,5 +102,15 @@ public class ConnectionEvents implements Listener , CommandExecutor {
             }
         }
         return false;
+    }
+
+
+    @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
+    public void onPlayerLogin(PlayerLoginEvent ev) {
+        InetAddress addr = ev.getRealAddress();
+        if (!plugin.canConnect(addr)) {
+            ev.setKickMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("only-proxy-join.kick-message")));
+            ev.setResult(PlayerLoginEvent.Result.KICK_WHITELIST);
+        }
     }
 }
