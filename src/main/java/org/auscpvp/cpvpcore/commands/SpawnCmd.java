@@ -11,12 +11,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.text.DecimalFormat;
-
 public class SpawnCmd implements CommandExecutor {
 
     CpvpCore plugin;
-    DecimalFormat format = new DecimalFormat("#.#");
 
     public SpawnCmd(CpvpCore plugin){
         this.plugin = plugin;
@@ -35,37 +32,13 @@ public class SpawnCmd implements CommandExecutor {
                     float yaw = plugin.getConfig().getInt("spawn.location.yaw");
                     Location loc = new Location(w, x, y, z, yaw, 0);
                     p.teleport(loc);
+                    return true;
                 } catch (Exception ignored) {}
             } else {
                 String str = plugin.getConfig().getString("messages.command-disabled");
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
             }
-        } else if(args[0].equalsIgnoreCase("set")){
-            if (p.hasPermission("cpvpcore.setspawn")) {
-                try {
-                    plugin.getConfig().set("spawn.location.world", p.getLocation().getWorld().getName());
-                    plugin.getConfig().set("spawn.location.x", Double.parseDouble(format.format(p.getLocation().getX())));
-                    plugin.getConfig().set("spawn.location.y", Double.parseDouble(format.format(p.getLocation().getY())));
-                    plugin.getConfig().set("spawn.location.z", Double.parseDouble(format.format(p.getLocation().getZ())));
-                    plugin.getConfig().set("spawn.location.yaw", Double.parseDouble(format.format(p.getLocation().getYaw())));
-                    plugin.saveConfig();
-                    Util.sendMessagePrefix(p, ChatColor.GREEN + "World spawn set to " + spawnFormatted());
-                } catch (Exception ex){
-                    Util.sendMessagePrefix(p, ChatColor.RED + "ERROR FAILED !");
-                }
-            } else {
-                p.sendMessage(ChatColor.RED + "You do not have the permission.");
-                return false;
-            }
-            return true;
         }
         return false;
-    }
-
-    public String spawnFormatted(){
-        final String x = format.format(plugin.getConfig().getDouble("spawn.location.x"));
-        final String y = format.format(plugin.getConfig().getDouble("spawn.location.y"));
-        final String z = format.format(plugin.getConfig().getDouble("spawn.location.z"));
-        return x + ", " + y + ", " + z;
     }
 }

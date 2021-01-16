@@ -7,7 +7,7 @@ authors: [ RemainingToast ]
 commands:
   toggleconnectionmsgs:
     description: Toggle join/leave message visibility.
-    aliases: ["tcmsgs"]
+    aliases: ["tc"]
   cpvpcore:
     usage: "/cpvpcore help"
     aliases: ["cpvp"]
