@@ -2,6 +2,12 @@ package org.auscpvp.cpvpcore;
 
 import org.auscpvp.cpvpcore.commands.*;
 import org.auscpvp.cpvpcore.listeners.ConnectionEvents;
+import org.auscpvp.cpvpcore.listeners.illegalchecks.ChunkLoadEvent;
+import org.auscpvp.cpvpcore.listeners.illegalchecks.HopperEvent;
+import org.auscpvp.cpvpcore.listeners.illegalchecks.InventoryEvents;
+import org.auscpvp.cpvpcore.listeners.illegalchecks.PickupEvent;
+import org.auscpvp.cpvpcore.utils.ItemUtil;
+import org.auscpvp.cpvpcore.utils.Util;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,9 +24,16 @@ public final class CpvpCore extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
-        pluginManager.registerEvents(new ConnectionEvents(this), this);
+        Util.setPrefix(getConfig().getString("prefix"));
 
-        getCommand("toggleconnectionmsgs").setExecutor(connectionEvents);
+        pluginManager.registerEvents(new ConnectionEvents(this), this);
+        pluginManager.registerEvents(new ChunkLoadEvent(this), this);
+        pluginManager.registerEvents(new PickupEvent(this), this);
+        pluginManager.registerEvents(new InventoryEvents(this), this);
+        pluginManager.registerEvents(new HopperEvent(this), this);
+
+        getCommand("toggleconnectionmsgs").setExecutor(new ToggleConnectionMsgsCmd(this));
+  
         getCommand("kill").setExecutor(new KillCmd(this));
         getCommand("spawn").setExecutor(new SpawnCmd(this));
         getCommand("gmc").setExecutor(new GmcCmd(this));
@@ -33,6 +46,10 @@ public final class CpvpCore extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public ItemUtil getItemUtils(){
+        return new ItemUtil(this);
     }
 
     public boolean canConnect(String ip){

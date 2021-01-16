@@ -6,13 +6,15 @@ prefix: CpvpCore
 authors: [ RemainingToast ]
 commands:
   toggleconnectionmsgs:
-    description: Enable/Disable player connection messages.
+    description: Toggle join/leave message visibility.
+    aliases: ["tcmsgs"]
   cpvpcore:
-    description: Core command, do /cpvpcore help
+    usage: "/cpvpcore help"
+    aliases: ["cpvp"]
   spawn:
     description: Teleport to spawn
   kill:
-    description: Start over
+    description: Kill yourself.
   gmc:
     description: ""
   gms:
@@ -20,4 +22,4 @@ commands:
   gmsp:
     description: ""
   help:
-    description: ""
+    description: Help command

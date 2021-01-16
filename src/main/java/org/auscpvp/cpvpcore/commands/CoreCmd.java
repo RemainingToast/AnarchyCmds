@@ -3,7 +3,6 @@ package org.auscpvp.cpvpcore.commands;
 import org.auscpvp.cpvpcore.CpvpCore;
 import org.auscpvp.cpvpcore.utils.Util;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 
@@ -24,19 +23,20 @@ public class CoreCmd implements TabExecutor {
             if(args.length > 0){
                 switch (args[0].toLowerCase()){
                     case "reload": {
+                        plugin.saveDefaultConfig();
                         plugin.reloadConfig();
-                        Util.sendMessage(sender, "&aReloaded config.");
+                        Util.sendMessagePrefix(sender, "&aReloaded configuration file successfully.");
                         return true;
                     }
                     case "version": {
-                        Util.sendMessage(sender, Util.getPrefix() + "&6Running version: &a" + plugin.getDescription().getVersion());
+                        Util.sendMessagePrefix(sender, "&6Running version: &a" + plugin.getDescription().getVersion());
                         return true;
                     }
                     case "help": {
-                        Util.sendMessage(sender, Util.getPrefix() + "&8---&r " + Util.getPrefix() + "&6Help &r&8---");
-                        Util.sendMessage(sender, Util.getPrefix() + "&6 /cpvpcore reload &8-&r&3 Reloads the config");
-                        Util.sendMessage(sender, Util.getPrefix() + "&6 /cpvpcore version &8-&r&3 Shows the version of the plugin");
-                        Util.sendMessage(sender, Util.getPrefix() + "&6 /cpvpcore help &8-&r&3 Shows help for the plugin");
+                        Util.sendMessagePrefix(sender, "&8---&r " + Util.getPrefix() + "&6Help &r&8---");
+                        Util.sendMessagePrefix(sender, "&6 /cpvpcore reload &8-&r&3 Reloads the config");
+                        Util.sendMessagePrefix(sender, "&6 /cpvpcore version &8-&r&3 Shows the version of the plugin");
+                        Util.sendMessagePrefix(sender, "&6 /cpvpcore help &8-&r&3 Shows help for the plugin");
                         return true;
                     }
                 }
@@ -53,7 +53,6 @@ public class CoreCmd implements TabExecutor {
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length > 0) {
             return Arrays.asList("reload", "version", "help");
-
         }
         return null;
     }

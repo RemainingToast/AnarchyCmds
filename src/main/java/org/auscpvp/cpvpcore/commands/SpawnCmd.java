@@ -1,6 +1,7 @@
 package org.auscpvp.cpvpcore.commands;
 
 import org.auscpvp.cpvpcore.CpvpCore;
+import org.auscpvp.cpvpcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -48,9 +49,9 @@ public class SpawnCmd implements CommandExecutor {
                     plugin.getConfig().set("spawn.location.z", Double.parseDouble(format.format(p.getLocation().getZ())));
                     plugin.getConfig().set("spawn.location.yaw", Double.parseDouble(format.format(p.getLocation().getYaw())));
                     plugin.saveConfig();
-                    p.sendMessage(ChatColor.GREEN + "World spawn set to " + spawnFormatted());
+                    Util.sendMessagePrefix(p, ChatColor.GREEN + "World spawn set to " + spawnFormatted());
                 } catch (Exception ex){
-                    p.sendMessage(ChatColor.RED + "ERROR FAILED !");
+                    Util.sendMessagePrefix(p, ChatColor.RED + "ERROR FAILED !");
                 }
             } else {
                 p.sendMessage(ChatColor.RED + "You do not have the permission.");

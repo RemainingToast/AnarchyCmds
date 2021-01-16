@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 
 public class Util {
 
-    private static String prefix = "&8[&2&lCpvp&4&lCore&r&8]&r ";
+    private static String prefix = "";
 
     public static String getPrefix() {
         return prefix;
@@ -22,6 +22,14 @@ public class Util {
 
     public static void sendMessage(CommandSender sender, String string) {
         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', string));
+    }
+
+    public static void sendMessagePrefix(Player player, String string) {
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + string));
+    }
+
+    public static void sendMessagePrefix(CommandSender sender, String string) {
+        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + string));
     }
 
 }
