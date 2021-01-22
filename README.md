@@ -1,4 +1,4 @@
-# CpvpCore
+# AnarchyCore
 ### ExploitFixer designed for 2b2t.com.au
 ![Discord](https://img.shields.io/discord/801552028504555550?label=Discord)
 ___
