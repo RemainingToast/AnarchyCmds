@@ -11,6 +11,10 @@ commands:
   anarchycore:
     description: Core command
     aliases: ["ac"]
+  ignore:
+    description: Ignore annoying players
+  ignorelist:
+    description: List of ignored players
   discord:
     description: Official Discord Link.
   kill:
