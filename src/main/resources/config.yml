@@ -6,18 +6,19 @@ toggle-connection-msgs:
   on-msg: "&aConnection messages are now SHOWN"
   off-msg: "&cConnection messages are now HIDDEN"
 connection-messages:
-  first-join-message: "&b%player% joined for the first time"
   join-message: "&7%player% joined the game"
   quit-message: "&7%player% has left the game"
 help:
   enabled: true
   message:
     - "&6-----------------------------------------------------"
-    - "&3/spawn teleport to spawn"
-    - "&3/toggleconnectionmsgs to toggle join and leave messages."
+    - "&3/discord teleport to spawn"
+    - "&3/tc to toggle join and leave messages."
     - "&3/kill to kill yourself."
-    - "&3/anarchycore help for more admin help"
     - "&6-----------------------------------------------------"
+discord:
+  enabled: true
+  message: "&cOfficial Discord: &2https://discord.gg/JEuhBr3GWg"
 kill:
   enabled: true
 only-proxy-join:

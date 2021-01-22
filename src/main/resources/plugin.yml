@@ -8,16 +8,18 @@ commands:
   toggleconnectionmsgs:
     description: Toggle join/leave message visibility.
     aliases: ["tc"]
-  cpvpcore:
-    usage: "/cpvpcore help"
-    aliases: ["cpvp"]
+  anarchycore:
+    description: Core command
+    aliases: ["ac"]
+  discord:
+    description: Official Discord Link.
   kill:
     description: Re-experience death again.
   gmc:
-    description: ""
+    description: Creative Alias
   gms:
-    description: ""
+    description: Survival Alias
   gmsp:
-    description: ""
+    description: Spectator Alias
   help:
-    description: Help command
+    description: Get some help, you obviously need it.

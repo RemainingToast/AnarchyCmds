@@ -15,6 +15,7 @@ ___
 
 ### Commands
 ##### Player
+* /discord \- Link to Discord
 * /kill \- Suicide command
 * /help \- Configurable help menu for players
 * /tc \- Toggles on / off the join messages for the player who sent the command

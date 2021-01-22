@@ -12,18 +12,17 @@ import com.au2b2t.anarchycore.utils.Util;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.util.List;
+import java.io.File;
 
 public final class AnarchyCore extends JavaPlugin {
 
     private final PluginManager pluginManager = getServer().getPluginManager();
+    public static File dataFolder;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        dataFolder = this.getDataFolder();
 
         Util.setPrefix(getConfig().getString("prefix"));
 
@@ -35,11 +34,12 @@ public final class AnarchyCore extends JavaPlugin {
 
         getCommand("toggleconnectionmsgs").setExecutor(new ToggleConnectionMsgsCmd(this));
         getCommand("kill").setExecutor(new KillCmd(this));
+        getCommand("discord").setExecutor(new DiscordCmd(this));
         getCommand("gmc").setExecutor(new GmcCmd(this));
         getCommand("gms").setExecutor(new GmsCmd(this));
         getCommand("gmsp").setExecutor(new GmspCmd(this));
         getCommand("help").setExecutor(new HelpCmd(this));
-        getCommand("cpvpcore").setExecutor(new CoreCmd(this));
+        getCommand("anarchycore").setExecutor(new CoreCmd(this));
     }
 
     @Override

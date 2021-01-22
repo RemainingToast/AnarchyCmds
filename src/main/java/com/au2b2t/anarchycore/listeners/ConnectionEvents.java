@@ -30,10 +30,6 @@ public class ConnectionEvents implements Listener {
             ToggleConnectionMsgsCmd.toggled.putIfAbsent(player.getUniqueId().toString(), true);
             if(ToggleConnectionMsgsCmd.toggled.get(player.getUniqueId().toString())){
                 try {
-                    if(!p.hasPlayedBefore()){
-                        String firstJoinMsg = plugin.getConfig().getString("connection-messages.first-join-message").replace("%player%", p.getName());
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', firstJoinMsg));
-                    }
                     String joinMsg = plugin.getConfig().getString("connection-messages.join-message").replace("%player%", p.getName());
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', joinMsg));
                 } catch (Exception ex) {
