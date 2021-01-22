@@ -49,13 +49,4 @@ public class ConnectionEvents implements Listener {
             }
         }
     }
-
-    @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
-    public void onPlayerLogin(PlayerLoginEvent ev) {
-        InetAddress addr = ev.getRealAddress();
-        if (!plugin.getProxyUtils().canConnect(addr)) {
-            ev.setKickMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("only-proxy-join.kick-message")));
-            ev.setResult(PlayerLoginEvent.Result.KICK_WHITELIST);
-        }
-    }
 }

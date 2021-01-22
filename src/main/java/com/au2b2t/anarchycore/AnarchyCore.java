@@ -7,7 +7,6 @@ import com.au2b2t.anarchycore.listeners.illegalchecks.HopperEvent;
 import com.au2b2t.anarchycore.listeners.illegalchecks.InventoryEvents;
 import com.au2b2t.anarchycore.listeners.illegalchecks.PickupEvent;
 import com.au2b2t.anarchycore.utils.ItemUtil;
-import com.au2b2t.anarchycore.utils.ProxyUtil;
 import com.au2b2t.anarchycore.utils.Util;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
