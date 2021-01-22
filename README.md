@@ -14,27 +14,30 @@ ___
 ___
 
 ### Commands
-
-* /cpvp \- Base plugin command
-* /gmc|gms|gmsp \- Gamemode aliases
+##### Player
 * /kill \- Suicide command
 * /help \- Configurable help menu for players
-* /spawn \- Teleport to spawn
 * /tc \- Toggles on / off the join messages for the player who sent the command
-
+##### Admin
+* /anarchycore \- Base plugin command
+* /gmc|gms|gmsp \- Gamemode Aliases
 ___
 
 ### Config
 <details>
 
 ```yml
-prefix: "&8[&2&lCpvp&4&lCore&r&8]&r "
+prefix: "&8[&2&lAnarchy&4&lCore&r&8]&r "
 gamemode-aliases:
   enabled: true
 toggle-connection-msgs:
   enabled: true
   on-msg: "&aConnection messages are now SHOWN"
   off-msg: "&cConnection messages are now HIDDEN"
+connection-messages:
+  first-join-message: "&b%player% joined for the first time"
+  join-message: "&7%player% joined the game"
+  quit-message: "&7%player% has left the game"
 help:
   enabled: true
   message:
@@ -42,24 +45,10 @@ help:
     - "&3/spawn teleport to spawn"
     - "&3/toggleconnectionmsgs to toggle join and leave messages."
     - "&3/kill to kill yourself."
-    - "&3/cpvpcore help for more admin help"
+    - "&3/anarchycore help for more admin help"
     - "&6-----------------------------------------------------"
 kill:
   enabled: true
-spawn:
-  enabled: true
-  teleport-onjoin: true
-  teleport-ondeath: true
-  location:
-    x:
-    y:
-    z:
-    yaw:
-    world:
-  messages:
-    first-join-message: "&b%player% joined for the first time"
-    join-message: "&7%player% joined the game"
-    quit-message: "&7%player% has left the game"
 only-proxy-join:
   enabled: true
   whitelist:
