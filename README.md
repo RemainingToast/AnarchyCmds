@@ -1,6 +1,6 @@
 # CpvpCore
-### ExploitFixer designed for auscpvp.org
-![Discord](https://img.shields.io/discord/717531607749099563?label=Discord)
+### ExploitFixer designed for 2b2t.com.au
+![Discord](https://img.shields.io/discord/801552028504555550?label=Discord)
 ___
 
 ### Features
