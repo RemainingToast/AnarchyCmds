@@ -1,6 +1,6 @@
-package org.auscpvp.cpvpcore.commands;
+package com.au2b2t.anarchycore.commands;
 
-import org.auscpvp.cpvpcore.CpvpCore;
+import com.au2b2t.anarchycore.AnarchyCore;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,9 +13,9 @@ public class ToggleConnectionMsgsCmd implements CommandExecutor {
 
     public static HashMap<String, Boolean> toggled = new HashMap<>();
 
-    CpvpCore plugin;
+    AnarchyCore plugin;
 
-    public ToggleConnectionMsgsCmd(CpvpCore plugin) {
+    public ToggleConnectionMsgsCmd(AnarchyCore plugin) {
         this.plugin = plugin;
     }
 

@@ -1,6 +1,6 @@
-package org.auscpvp.cpvpcore.listeners.illegalchecks;
+package com.au2b2t.anarchycore.listeners.illegalchecks;
 
-import org.auscpvp.cpvpcore.CpvpCore;
+import com.au2b2t.anarchycore.AnarchyCore;
 import org.bukkit.block.ShulkerBox;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,9 +10,9 @@ import org.bukkit.inventory.meta.BlockStateMeta;
 
 public class PickupEvent implements Listener {
 
-    CpvpCore plugin;
+    AnarchyCore plugin;
 
-    public PickupEvent(CpvpCore plugin) {
+    public PickupEvent(AnarchyCore plugin) {
         this.plugin = plugin;
     }
 

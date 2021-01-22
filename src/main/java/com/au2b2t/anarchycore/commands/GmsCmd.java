@@ -1,6 +1,6 @@
-package org.auscpvp.cpvpcore.commands;
+package com.au2b2t.anarchycore.commands;
 
-import org.auscpvp.cpvpcore.CpvpCore;
+import com.au2b2t.anarchycore.AnarchyCore;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,9 +9,9 @@ import org.bukkit.entity.Player;
 
 public class GmsCmd implements CommandExecutor {
 
-    CpvpCore plugin;
+    AnarchyCore plugin;
 
-    public GmsCmd(CpvpCore plugin) {
+    public GmsCmd(AnarchyCore plugin) {
         this.plugin = plugin;
     }
 

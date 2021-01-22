@@ -1,6 +1,6 @@
-package org.auscpvp.cpvpcore.commands;
+package com.au2b2t.anarchycore.commands;
 
-import org.auscpvp.cpvpcore.CpvpCore;
+import com.au2b2t.anarchycore.AnarchyCore;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,9 +10,9 @@ import java.util.List;
 
 public class HelpCmd implements CommandExecutor {
 
-    CpvpCore plugin;
+    AnarchyCore plugin;
 
-    public HelpCmd(CpvpCore plugin){
+    public HelpCmd(AnarchyCore plugin){
         this.plugin = plugin;
     }
 

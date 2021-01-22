@@ -1,23 +1,24 @@
-package org.auscpvp.cpvpcore;
+package com.au2b2t.anarchycore;
 
-import org.auscpvp.cpvpcore.commands.*;
-import org.auscpvp.cpvpcore.listeners.ConnectionEvents;
-import org.auscpvp.cpvpcore.listeners.illegalchecks.ChunkLoadEvent;
-import org.auscpvp.cpvpcore.listeners.illegalchecks.HopperEvent;
-import org.auscpvp.cpvpcore.listeners.illegalchecks.InventoryEvents;
-import org.auscpvp.cpvpcore.listeners.illegalchecks.PickupEvent;
-import org.auscpvp.cpvpcore.utils.ItemUtil;
-import org.auscpvp.cpvpcore.utils.Util;
+import com.au2b2t.anarchycore.commands.*;
+import com.au2b2t.anarchycore.listeners.ConnectionEvents;
+import com.au2b2t.anarchycore.listeners.illegalchecks.ChunkLoadEvent;
+import com.au2b2t.anarchycore.listeners.illegalchecks.HopperEvent;
+import com.au2b2t.anarchycore.listeners.illegalchecks.InventoryEvents;
+import com.au2b2t.anarchycore.listeners.illegalchecks.PickupEvent;
+import com.au2b2t.anarchycore.utils.ItemUtil;
+import com.au2b2t.anarchycore.utils.ProxyUtil;
+import com.au2b2t.anarchycore.utils.Util;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.util.List;
 
-public final class CpvpCore extends JavaPlugin {
+public final class AnarchyCore extends JavaPlugin {
 
-    ConnectionEvents connectionEvents = new ConnectionEvents(this);
     private final PluginManager pluginManager = getServer().getPluginManager();
 
     @Override
@@ -33,9 +34,7 @@ public final class CpvpCore extends JavaPlugin {
         pluginManager.registerEvents(new HopperEvent(this), this);
 
         getCommand("toggleconnectionmsgs").setExecutor(new ToggleConnectionMsgsCmd(this));
-  
         getCommand("kill").setExecutor(new KillCmd(this));
-        getCommand("spawn").setExecutor(new SpawnCmd(this));
         getCommand("gmc").setExecutor(new GmcCmd(this));
         getCommand("gms").setExecutor(new GmsCmd(this));
         getCommand("gmsp").setExecutor(new GmspCmd(this));
@@ -52,21 +51,7 @@ public final class CpvpCore extends JavaPlugin {
         return new ItemUtil(this);
     }
 
-    public boolean canConnect(String ip){
-        List<String> ips = getConfig().getStringList("only-proxy-join.whitelist");
-        return ips.contains(ip);
-    }
+    public ProxyUtil getProxyUtils() { return new ProxyUtil(this); }
 
-    public boolean canConnect(InetAddress addr) {
-        return this.canConnect(addr.getHostAddress());
-    }
 
-    public void whitelistIP(InetSocketAddress ip) {
-        this.whitelistIP(ip.getAddress().getHostAddress());
-    }
-
-    public void whitelistIP(String ip) {
-        getConfig().getStringList("only-proxy-join.whitelist").add(ip);
-        saveConfig();
-    }
 }

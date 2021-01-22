@@ -1,6 +1,6 @@
-package org.auscpvp.cpvpcore.listeners.illegalchecks;
+package com.au2b2t.anarchycore.listeners.illegalchecks;
 
-import org.auscpvp.cpvpcore.CpvpCore;
+import com.au2b2t.anarchycore.AnarchyCore;
 import org.bukkit.ChatColor;
 import org.bukkit.block.ShulkerBox;
 import org.bukkit.event.EventHandler;
@@ -13,9 +13,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class HopperEvent implements Listener {
 
-    CpvpCore plugin;
+    AnarchyCore plugin;
 
-    public HopperEvent(CpvpCore plugin){
+    public HopperEvent(AnarchyCore plugin){
         this.plugin = plugin;
     }
 

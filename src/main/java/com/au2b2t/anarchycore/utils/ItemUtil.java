@@ -1,6 +1,6 @@
-package org.auscpvp.cpvpcore.utils;
+package com.au2b2t.anarchycore.utils;
 
-import org.auscpvp.cpvpcore.CpvpCore;
+import com.au2b2t.anarchycore.AnarchyCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -18,9 +18,9 @@ import java.util.logging.Level;
 
 public class ItemUtil {
 
-    CpvpCore plugin;
+    AnarchyCore plugin;
 
-    public ItemUtil(CpvpCore plugin) {
+    public ItemUtil(AnarchyCore plugin) {
         this.plugin = plugin;
     }
 

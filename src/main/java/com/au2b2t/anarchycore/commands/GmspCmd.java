@@ -1,18 +1,18 @@
-package org.auscpvp.cpvpcore.commands;
+package com.au2b2t.anarchycore.commands;
 
-import org.auscpvp.cpvpcore.CpvpCore;
+import com.au2b2t.anarchycore.AnarchyCore;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class GmcCmd implements CommandExecutor {
+public class GmspCmd implements CommandExecutor {
 
-    CpvpCore plugin;
+    AnarchyCore plugin;
 
-    public GmcCmd(CpvpCore plugin) {
-       this.plugin = plugin;
+    public GmspCmd(AnarchyCore plugin) {
+        this.plugin = plugin;
     }
 
     @Override
@@ -20,7 +20,7 @@ public class GmcCmd implements CommandExecutor {
         Player p = (Player) sender;
         if(p != null){
             if(plugin.getConfig().getBoolean("gamemode-aliases.enabled")){
-                p.performCommand("gamemode creative");
+                p.performCommand("gamemode spectator");
             } else {
                 String str = plugin.getConfig().getString("messages.command-disabled");
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
@@ -28,4 +28,5 @@ public class GmcCmd implements CommandExecutor {
         }
         return false;
     }
+
 }

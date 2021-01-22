@@ -1,4 +1,4 @@
-package org.auscpvp.cpvpcore.utils;
+package com.au2b2t.anarchycore.utils;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.CommandSender;

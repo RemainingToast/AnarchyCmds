@@ -1,15 +1,15 @@
-package org.auscpvp.cpvpcore.listeners.illegalchecks;
+package com.au2b2t.anarchycore.listeners.illegalchecks;
 
-import org.auscpvp.cpvpcore.CpvpCore;
+import com.au2b2t.anarchycore.AnarchyCore;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Container;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 public class ChunkLoadEvent implements Listener {
-    CpvpCore plugin;
+    AnarchyCore plugin;
 
-    public ChunkLoadEvent(CpvpCore plugin) {
+    public ChunkLoadEvent(AnarchyCore plugin) {
         this.plugin = plugin;
     }
 

@@ -1,8 +1,8 @@
-name: CpvpCore
+name: AnarchyCore
 version: ${project.version}
-main: org.auscpvp.cpvpcore.CpvpCore
+main: com.au2b2t.anarchycore.AnarchyCore
 api-version: 1.16
-prefix: CpvpCore
+prefix: AnarchyCore
 authors: [ RemainingToast ]
 commands:
   toggleconnectionmsgs:
@@ -11,10 +11,8 @@ commands:
   cpvpcore:
     usage: "/cpvpcore help"
     aliases: ["cpvp"]
-  spawn:
-    description: Teleport to spawn
   kill:
-    description: Kill yourself.
+    description: Re-experience death again.
   gmc:
     description: ""
   gms:

@@ -1,14 +1,9 @@
-package org.auscpvp.cpvpcore.listeners;
+package com.au2b2t.anarchycore.listeners;
 
-import org.auscpvp.cpvpcore.CpvpCore;
-import org.auscpvp.cpvpcore.commands.ToggleConnectionMsgsCmd;
+import com.au2b2t.anarchycore.AnarchyCore;
+import com.au2b2t.anarchycore.commands.ToggleConnectionMsgsCmd;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.World;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -21,9 +16,9 @@ import java.net.InetAddress;
 
 public class ConnectionEvents implements Listener {
 
-    CpvpCore plugin;
+    AnarchyCore plugin;
 
-    public ConnectionEvents(CpvpCore plugin){
+    public ConnectionEvents(AnarchyCore plugin){
         this.plugin = plugin;
     }
 
@@ -36,26 +31,14 @@ public class ConnectionEvents implements Listener {
             if(ToggleConnectionMsgsCmd.toggled.get(player.getUniqueId().toString())){
                 try {
                     if(!p.hasPlayedBefore()){
-                        String firstJoinMsg = plugin.getConfig().getString("spawn.messages.first-join-message").replace("%player%", p.getName());
+                        String firstJoinMsg = plugin.getConfig().getString("connection-messages.first-join-message").replace("%player%", p.getName());
                         player.sendMessage(ChatColor.translateAlternateColorCodes('&', firstJoinMsg));
                     }
-                    String joinMsg = plugin.getConfig().getString("spawn.messages.join-message").replace("%player%", p.getName());
+                    String joinMsg = plugin.getConfig().getString("connection-messages.join-message").replace("%player%", p.getName());
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', joinMsg));
                 } catch (Exception ex) {
                     System.out.println(ex.toString());
                 }
-            }
-        }
-        if(plugin.getConfig().getBoolean("spawn.teleport-onjoin")){
-            try {
-                World w = Bukkit.getServer().getWorld(plugin.getConfig().getString("spawn.location.world"));
-                double x = plugin.getConfig().getDouble("spawn.location.x");
-                double y = plugin.getConfig().getDouble("spawn.location.y");
-                double z = plugin.getConfig().getDouble("spawn.location.z");
-                float yaw = plugin.getConfig().getInt("spawn.location.yaw");
-                p.teleport(new Location(w, x, y, z, yaw, 0));
-            } catch (Exception ex){
-                System.out.println(ex.toString());
             }
         }
     }
@@ -65,7 +48,7 @@ public class ConnectionEvents implements Listener {
         e.setQuitMessage(null);
         for (Player player : Bukkit.getOnlinePlayers()){
             if (ToggleConnectionMsgsCmd.toggled.get(player.getUniqueId().toString())){
-                String quitMsg = plugin.getConfig().getString("spawn.messages.quit-message").replace("%player%", e.getPlayer().getName());
+                String quitMsg = plugin.getConfig().getString("connection-messages.quit-message").replace("%player%", e.getPlayer().getName());
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', quitMsg));
             }
         }
@@ -74,7 +57,7 @@ public class ConnectionEvents implements Listener {
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onPlayerLogin(PlayerLoginEvent ev) {
         InetAddress addr = ev.getRealAddress();
-        if (!plugin.canConnect(addr)) {
+        if (!plugin.getProxyUtils().canConnect(addr)) {
             ev.setKickMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("only-proxy-join.kick-message")));
             ev.setResult(PlayerLoginEvent.Result.KICK_WHITELIST);
         }
