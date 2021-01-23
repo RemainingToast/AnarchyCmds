@@ -30,10 +30,10 @@ public class ToggleConnectionMsgsCmd implements CommandExecutor {
                     Player p = (Player) sender;
                     String id = p.getUniqueId().toString();
                     if(toggled.get(id)){
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("messages.connection-cmd-on")));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("messages.connection-cmd-off")));
                         toggled.replace(id, false);
                     } else {
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("messages.connection-cmd-off")));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("messages.connection-cmd-on")));
                         toggled.replace(id, true);
                     }
                     return true;
