@@ -3,6 +3,7 @@ package com.au2b2t.anarchycore;
 import com.au2b2t.anarchycore.commands.*;
 import com.au2b2t.anarchycore.listeners.ConnectionEvents;
 import com.au2b2t.anarchycore.listeners.ElytraEvents;
+import com.au2b2t.anarchycore.listeners.MoveEvents;
 import com.au2b2t.anarchycore.listeners.RedstoneEvents;
 import com.au2b2t.anarchycore.utils.ItemUtil;
 import com.au2b2t.anarchycore.utils.Util;
@@ -29,6 +30,7 @@ public final class AnarchyCore extends JavaPlugin {
 
         pluginManager.registerEvents(new RedstoneEvents(),this);
         pluginManager.registerEvents(new ElytraEvents(), this);
+        pluginManager.registerEvents(new MoveEvents(), this);
         pluginManager.registerEvents(new ConnectionEvents(this), this);
 
         getCommand("toggleconnectionmsgs").setExecutor(new ToggleConnectionMsgsCmd(this));

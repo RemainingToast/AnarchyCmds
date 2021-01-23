@@ -9,6 +9,7 @@ kill-command: true
 disable-redstone-tps: 20
 delete-entities-tps: 5
 disable-elytra-tps: 20
+disable-netherroof: true
 # Messages
 messages:
   connection-cmd-on: "&aConnection messages are now SHOWN"
