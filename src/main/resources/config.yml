@@ -6,10 +6,13 @@ help-command: true
 discord-command: true
 kill-command: true
 # Exploits
-disable-redstone-tps: 20
+disable-redstone-tps: 15
 delete-entities-tps: 5
-disable-elytra-tps: 20
+disable-elytra-tps: 13
 disable-netherroof: true
+# Features
+random-motd: true
+in-game-motd: true
 # Messages
 messages:
   connection-cmd-on: "&aConnection messages are now SHOWN"
@@ -18,9 +21,23 @@ messages:
   quit-message: "&7%player% has left the game"
   discord-message: "&cOfficial Discord: &2https://discord.gg/JEuhBr3GWg"
   command-disabled: "&cCommand Disabled"
+  in-game-motd: "&4Welcome to hell, cunt"
   help-message:
     - "&6-----------------------------------------------------"
-    - "&3/discord teleport to spawn"
-    - "&3/tc to toggle join and leave messages."
-    - "&3/kill to kill yourself."
+    - "&3/w <player> - Send pm to player"
+    - "&3/r - Reply to last pm"
+    - "&3/ignore <player> - Ignore someones messages"
+    - "&3/ignorelist - See ignore list"
+    - "&3/togglechat - Toggle chat messages entirely"
+    - "&3/togglewhispering - Toggle whether you receive pms"
+    - "&3/toggledeathmsg - Toggle death messages"
+    - "&3/namecolour <colour> - Change Namecolour"
+    - "&3/namecolourcheck - See remaining namecolor time"
+    - "&3/vote - Vote for the server 8hrs of namecolour each link"
+    - "&3/discord - Official Link"
+    - "&3/tc - Toggle join and leave messages."
+    - "&3/kill - Kill yourself."
     - "&6-----------------------------------------------------"
+  motd-messages:
+    - "&7&o&l2B2Tau &8> &6NSW is the superior state"
+    - "&7&o&l2B2Tau &8> &6Ownership has been passed over to\n veteran player nattf"

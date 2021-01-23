@@ -2,6 +2,7 @@ package com.au2b2t.anarchycore.listeners;
 
 import com.au2b2t.anarchycore.AnarchyCore;
 import com.au2b2t.anarchycore.commands.ToggleConnectionMsgsCmd;
+import com.au2b2t.anarchycore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -26,6 +27,11 @@ public class ConnectionEvents implements Listener {
     public void onJoin(PlayerJoinEvent e){
         e.setJoinMessage(null);
         Player p = e.getPlayer();
+        if(plugin.getConfig().getBoolean("in-game-motd")){
+            String motd = plugin.getConfig().getString("messages.in-game-motd");
+            motd = motd.replaceAll("%player%", p.getName());
+            Util.sendMessage(p, motd);
+        }
         for(Player player : Bukkit.getOnlinePlayers()){
             ToggleConnectionMsgsCmd.toggled.putIfAbsent(player.getUniqueId().toString(), true);
             if(ToggleConnectionMsgsCmd.toggled.get(player.getUniqueId().toString())){
