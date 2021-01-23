@@ -19,7 +19,7 @@ public class GmspCmd implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player p = (Player) sender;
         if(p != null){
-            if(plugin.getConfig().getBoolean("gamemode-aliases.enabled")){
+            if(plugin.getConfig().getBoolean("gamemode-aliases-cmd")){
                 p.performCommand("gamemode spectator");
             } else {
                 String str = plugin.getConfig().getString("messages.command-disabled");

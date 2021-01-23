@@ -18,8 +18,8 @@ public class HelpCmd implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(plugin.getConfig().getBoolean("help.enabled")){
-            List<String> lines = plugin.getConfig().getStringList("help.message");
+        if(plugin.getConfig().getBoolean("help-command")){
+            List<String> lines = plugin.getConfig().getStringList("messages.help-message");
             String str = String.join("\n", lines);
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
         } else {

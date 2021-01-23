@@ -1,12 +1,9 @@
 package com.au2b2t.anarchycore;
 
 import com.au2b2t.anarchycore.commands.*;
-import com.au2b2t.anarchycore.listeners.ChatEvents;
 import com.au2b2t.anarchycore.listeners.ConnectionEvents;
-import com.au2b2t.anarchycore.listeners.illegalchecks.ChunkLoadEvent;
-import com.au2b2t.anarchycore.listeners.illegalchecks.HopperEvent;
-import com.au2b2t.anarchycore.listeners.illegalchecks.InventoryEvents;
-import com.au2b2t.anarchycore.listeners.illegalchecks.PickupEvent;
+import com.au2b2t.anarchycore.listeners.ElytraEvents;
+import com.au2b2t.anarchycore.listeners.RedstoneEvents;
 import com.au2b2t.anarchycore.utils.ItemUtil;
 import com.au2b2t.anarchycore.utils.Util;
 import com.google.gson.Gson;
@@ -30,17 +27,12 @@ public final class AnarchyCore extends JavaPlugin {
 
         Util.setPrefix(getConfig().getString("prefix"));
 
+        pluginManager.registerEvents(new RedstoneEvents(),this);
+        pluginManager.registerEvents(new ElytraEvents(), this);
         pluginManager.registerEvents(new ConnectionEvents(this), this);
-        pluginManager.registerEvents(new ChatEvents(this), this);
-        pluginManager.registerEvents(new ChunkLoadEvent(this), this);
-        pluginManager.registerEvents(new PickupEvent(this), this);
-        pluginManager.registerEvents(new InventoryEvents(this), this);
-        pluginManager.registerEvents(new HopperEvent(this), this);
 
         getCommand("toggleconnectionmsgs").setExecutor(new ToggleConnectionMsgsCmd(this));
         getCommand("kill").setExecutor(new KillCmd(this));
-        getCommand("ignore").setExecutor(new Ignore());
-        getCommand("ignorelist").setExecutor(new IgnoreList());
         getCommand("discord").setExecutor(new DiscordCmd(this));
         getCommand("gmc").setExecutor(new GmcCmd(this));
         getCommand("gms").setExecutor(new GmsCmd(this));

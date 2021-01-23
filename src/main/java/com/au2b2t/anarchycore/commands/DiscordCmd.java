@@ -16,8 +16,8 @@ public class DiscordCmd implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(plugin.getConfig().getBoolean("discord.enabled")){
-            String str = plugin.getConfig().getString("discord.message");
+        if(plugin.getConfig().getBoolean("discord-command")){
+            String str = plugin.getConfig().getString("messages.discord-message");
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
             return true;
         }

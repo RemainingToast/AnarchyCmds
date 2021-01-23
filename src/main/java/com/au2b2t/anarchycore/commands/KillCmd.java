@@ -17,7 +17,7 @@ public class KillCmd implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player p = (Player) sender;
-        if(plugin.getConfig().getBoolean("kill.enabled")){
+        if(plugin.getConfig().getBoolean("kill-command")){
             if(p != null){
                 p.setHealth(0);
                 return true;

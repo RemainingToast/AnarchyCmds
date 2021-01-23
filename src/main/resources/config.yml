@@ -1,49 +1,25 @@
 prefix: "&8[&2&lAnarchy&4&lCore&r&8]&r "
-gamemode-aliases:
-  enabled: true
-toggle-connection-msgs:
-  enabled: true
-  on-msg: "&aConnection messages are now SHOWN"
-  off-msg: "&cConnection messages are now HIDDEN"
-connection-messages:
+# Commands
+gamemode-aliases-cmd: true
+toggle-connection-msgs-cmd: true
+help-command: true
+discord-command: true
+kill-command: true
+# Exploits
+disable-redstone-tps: 20
+delete-entities-tps: 5
+disable-elytra-tps: 20
+# Messages
+messages:
+  connection-cmd-on: "&aConnection messages are now SHOWN"
+  connection-cmd-off: "&cConnection messages are now HIDDEN"
   join-message: "&7%player% joined the game"
   quit-message: "&7%player% has left the game"
-help:
-  enabled: true
-  message:
+  discord-message: "&cOfficial Discord: &2https://discord.gg/JEuhBr3GWg"
+  command-disabled: "&cCommand Disabled"
+  help-message:
     - "&6-----------------------------------------------------"
     - "&3/discord teleport to spawn"
     - "&3/tc to toggle join and leave messages."
     - "&3/kill to kill yourself."
     - "&6-----------------------------------------------------"
-discord:
-  enabled: true
-  message: "&cOfficial Discord: &2https://discord.gg/JEuhBr3GWg"
-kill:
-  enabled: true
-only-proxy-join:
-  enabled: true
-  whitelist:
-    - 127.0.0.1
-  kick-message: '&cYou have to join through the proxy.'
-illegal-items:
-  remove-overstacked: true
-  remove-potions: true
-  checks:
-    chunk-load: true
-    inventory: true
-    pickup: true
-    hopper-move: true
-    block-place: true
-  blacklist:
-    - "BEDROCK"
-    - "COMMAND_REPEATING"
-    - "COMMAND_MINECART"
-    - "COMMAND_CHAIN"
-    - "COMMAND"
-    - "ENDER_PORTAL_FRAME"
-    - "KNOWLEDGE_BOOK"
-    - "MOB_SPAWNER"
-    - "PORTAL"
-    - "STRUCTURE_BLOCK"
-    - "STRUCTURE_VOID"

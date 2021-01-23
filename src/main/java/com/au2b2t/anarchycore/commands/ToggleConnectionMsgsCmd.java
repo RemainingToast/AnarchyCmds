@@ -21,7 +21,7 @@ public class ToggleConnectionMsgsCmd implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(plugin.getConfig().getBoolean("toggle-connection-msgs.enabled")){
+        if(plugin.getConfig().getBoolean("toggle-connection-msgs-cmd")){
             if(!(sender instanceof Player)){
                 sender.sendMessage("The console can not toggle connection messages.");
                 return false;
@@ -30,10 +30,10 @@ public class ToggleConnectionMsgsCmd implements CommandExecutor {
                     Player p = (Player) sender;
                     String id = p.getUniqueId().toString();
                     if(toggled.get(id)){
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("toggle-connection-msgs.off-msg")));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("messages.connection-cmd-on")));
                         toggled.replace(id, false);
                     } else {
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("toggle-connection-msgs.on-msg")));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("messages.connection-cmd-off")));
                         toggled.replace(id, true);
                     }
                     return true;

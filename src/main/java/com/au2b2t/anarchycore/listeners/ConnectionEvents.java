@@ -30,7 +30,7 @@ public class ConnectionEvents implements Listener {
             ToggleConnectionMsgsCmd.toggled.putIfAbsent(player.getUniqueId().toString(), true);
             if(ToggleConnectionMsgsCmd.toggled.get(player.getUniqueId().toString())){
                 try {
-                    String joinMsg = plugin.getConfig().getString("connection-messages.join-message").replace("%player%", p.getName());
+                    String joinMsg = plugin.getConfig().getString("messages.join-message").replace("%player%", p.getName());
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', joinMsg));
                 } catch (Exception ex) {
                     System.out.println(ex.toString());
@@ -44,7 +44,7 @@ public class ConnectionEvents implements Listener {
         e.setQuitMessage(null);
         for (Player player : Bukkit.getOnlinePlayers()){
             if (ToggleConnectionMsgsCmd.toggled.get(player.getUniqueId().toString())){
-                String quitMsg = plugin.getConfig().getString("connection-messages.quit-message").replace("%player%", e.getPlayer().getName());
+                String quitMsg = plugin.getConfig().getString("messages.quit-message").replace("%player%", e.getPlayer().getName());
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', quitMsg));
             }
         }

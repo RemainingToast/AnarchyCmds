@@ -1,6 +1,7 @@
 package com.au2b2t.anarchycore.utils;
 
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -10,6 +11,10 @@ public class Util {
 
     public static String getPrefix() {
         return prefix;
+    }
+
+    public static double getTps(){
+        return Math.round(Bukkit.getServer().getTPS()[0]);
     }
 
     public static void setPrefix(String prefix) {
