@@ -1,9 +1,9 @@
-package com.au2b2t.anarchycore;
+package com.github.anarchyplugins.anarchycore;
 
-import com.au2b2t.anarchycore.commands.*;
-import com.au2b2t.anarchycore.listeners.*;
-import com.au2b2t.anarchycore.utils.ItemUtil;
-import com.au2b2t.anarchycore.utils.Util;
+import com.github.anarchyplugins.anarchycore.utils.ItemUtil;
+import com.github.anarchyplugins.anarchycore.utils.Util;
+import com.github.anarchyplugins.anarchycore.commands.*;
+import com.github.anarchyplugins.anarchycore.listeners.*;
 import com.google.gson.Gson;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;

@@ -1,6 +1,6 @@
 name: AnarchyCore
 version: ${project.version}
-main: com.au2b2t.anarchycore.AnarchyCore
+main: com.github.anarchyplugins.anarchycore.AnarchyCore
 api-version: 1.16
 prefix: AnarchyCore
 authors: [ RemainingToast ]

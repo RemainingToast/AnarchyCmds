@@ -1,18 +1,18 @@
-package com.au2b2t.anarchycore.commands;
+package com.github.anarchyplugins.anarchycore.commands;
 
-import com.au2b2t.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.AnarchyCore;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class GmcCmd implements CommandExecutor {
+public class GmsCmd implements CommandExecutor {
 
     AnarchyCore plugin;
 
-    public GmcCmd(AnarchyCore plugin) {
-       this.plugin = plugin;
+    public GmsCmd(AnarchyCore plugin) {
+        this.plugin = plugin;
     }
 
     @Override
@@ -20,7 +20,7 @@ public class GmcCmd implements CommandExecutor {
         Player p = (Player) sender;
         if(p != null){
             if(plugin.getConfig().getBoolean("gamemode-aliases-cmd")){
-                p.performCommand("gamemode creative");
+                p.performCommand("gamemode survival");
             } else {
                 String str = plugin.getConfig().getString("messages.command-disabled");
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
@@ -28,4 +28,5 @@ public class GmcCmd implements CommandExecutor {
         }
         return false;
     }
+
 }

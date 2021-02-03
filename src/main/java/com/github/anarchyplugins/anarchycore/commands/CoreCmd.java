@@ -1,7 +1,7 @@
-package com.au2b2t.anarchycore.commands;
+package com.github.anarchyplugins.anarchycore.commands;
 
-import com.au2b2t.anarchycore.AnarchyCore;
-import com.au2b2t.anarchycore.utils.Util;
+import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.utils.Util;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;

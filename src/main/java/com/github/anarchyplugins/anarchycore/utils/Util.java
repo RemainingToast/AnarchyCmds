@@ -1,4 +1,4 @@
-package com.au2b2t.anarchycore.utils;
+package com.github.anarchyplugins.anarchycore.utils;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;

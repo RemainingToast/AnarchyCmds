@@ -1,6 +1,6 @@
-package com.au2b2t.anarchycore.listeners;
+package com.github.anarchyplugins.anarchycore.listeners;
 
-import com.au2b2t.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.AnarchyCore;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

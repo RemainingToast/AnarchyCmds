@@ -1,19 +1,15 @@
-package com.au2b2t.anarchycore.listeners;
+package com.github.anarchyplugins.anarchycore.listeners;
 
-import com.au2b2t.anarchycore.AnarchyCore;
-import com.au2b2t.anarchycore.commands.ToggleConnectionMsgsCmd;
-import com.au2b2t.anarchycore.utils.Util;
+import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.commands.ToggleConnectionMsgsCmd;
+import com.github.anarchyplugins.anarchycore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-
-import java.net.InetAddress;
 
 public class ConnectionEvents implements Listener {
 

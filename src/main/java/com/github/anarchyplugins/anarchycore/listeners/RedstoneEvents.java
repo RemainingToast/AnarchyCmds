@@ -1,7 +1,7 @@
-package com.au2b2t.anarchycore.listeners;
+package com.github.anarchyplugins.anarchycore.listeners;
 
-import com.au2b2t.anarchycore.AnarchyCore;
-import com.au2b2t.anarchycore.utils.Util;
+import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.utils.Util;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

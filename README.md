@@ -1,5 +1,5 @@
 # AnarchyCore
-### ExploitFixer designed for 2b2t.com.au
+### All in one plugin for Anarchy Servers
 ![Discord](https://img.shields.io/discord/801552028504555550?label=Discord)
 ___
 
@@ -46,7 +46,6 @@ help:
     - "&3/spawn teleport to spawn"
     - "&3/toggleconnectionmsgs to toggle join and leave messages."
     - "&3/kill to kill yourself."
-    - "&3/anarchycore help for more admin help"
     - "&6-----------------------------------------------------"
 kill:
   enabled: true

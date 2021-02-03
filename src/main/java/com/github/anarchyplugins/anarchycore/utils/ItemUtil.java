@@ -1,6 +1,6 @@
-package com.au2b2t.anarchycore.utils;
+package com.github.anarchyplugins.anarchycore.utils;
 
-import com.au2b2t.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.AnarchyCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
