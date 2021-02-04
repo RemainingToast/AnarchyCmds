@@ -1,16 +1,12 @@
 # AnarchyCore
 ### All in one plugin for Anarchy Servers
-![Discord](https://img.shields.io/discord/801552028504555550?label=Discord)
 ___
 
 ### Features
 
 * Very Configurable
 * Prevents Illegal Items
-* Force spawn for join/death
 * Gamemode Aliases
-* OnlyProxyJoin
-
 ___
 
 ### Commands

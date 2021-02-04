@@ -2,13 +2,20 @@ package com.github.anarchyplugins.anarchycore.listeners;
 
 import com.github.anarchyplugins.anarchycore.AnarchyCore;
 import com.github.anarchyplugins.anarchycore.utils.Util;
+import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockRedstoneEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+
+import java.util.HashMap;
 
 public class RedstoneEvents implements Listener {
+
+    private final HashMap<Player, Integer> leverHashMap = new HashMap<>();
 
     @EventHandler
     public void onRedstone(BlockRedstoneEvent e){
@@ -24,6 +31,29 @@ public class RedstoneEvents implements Listener {
                     }
                 }
             }
+        }
+    }
+
+    @EventHandler
+    public void onPull(PlayerInteractEvent event) {
+        try {
+            if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                if (event.getClickedBlock().getType() == Material.LEVER) {
+                    Player player = event.getPlayer();
+                    if (leverHashMap.containsKey(player)) {
+                        leverHashMap.put(player, leverHashMap.get(player) + 1);
+                    } else {
+                        leverHashMap.put(player, 1);
+                    }
+                    if (leverHashMap.get(player) > 5) {
+                        event.setCancelled(true);
+                        player.kickPlayer("");
+                        leverHashMap.remove(player);
+                    }
+                }
+            }
+        } catch (Error | Exception throwable) {
+            System.out.println(throwable);
         }
     }
 }
