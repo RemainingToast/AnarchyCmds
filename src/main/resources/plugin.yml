@@ -4,6 +4,7 @@ main: com.github.anarchyplugins.anarchycore.AnarchyCore
 api-version: 1.16
 prefix: AnarchyCore
 authors: [ RemainingToast ]
+softdepend: [PlaceholderAPI]
 commands:
   toggleconnectionmsgs:
     description: Toggle join/leave message visibility.
@@ -23,3 +24,8 @@ commands:
     description: Spectator Alias
   help:
     description: Get some help, you obviously need it.
+  vanish:
+    description: Go VANISH
+  playtime:
+    description: Check how long an player has played for
+    aliases: ["pt","jd","joindate"]

@@ -35,9 +35,6 @@ messages:
     - "&3/namecolourcheck - See remaining namecolor time"
     - "&3/vote - Vote for the server 8hrs of namecolour each link"
     - "&3/discord - Official Link"
-    - "&3/tc - Toggle join and leave messages."
+    - "&3/tcm - Toggle connection messages."
     - "&3/kill - Kill yourself."
     - "&6-----------------------------------------------------"
-  motd-messages:
-    - "&7&o&l2B2Tau &8> &6NSW is the superior state"
-    - "&7&o&l2B2Tau &8> &6Ownership has been passed over to\n veteran player nattf"

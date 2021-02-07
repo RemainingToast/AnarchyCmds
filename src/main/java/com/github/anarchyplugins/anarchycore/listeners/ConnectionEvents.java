@@ -23,6 +23,9 @@ public class ConnectionEvents implements Listener {
     public void onJoin(PlayerJoinEvent e){
         e.setJoinMessage(null);
         Player p = e.getPlayer();
+        for (Player vanished: plugin.gamemodelist.keySet()){
+            p.hidePlayer(plugin, vanished);
+        }
         if(plugin.getConfig().getBoolean("in-game-motd")){
             String motd = plugin.getConfig().getString("messages.in-game-motd");
             motd = motd.replaceAll("%player%", p.getName());

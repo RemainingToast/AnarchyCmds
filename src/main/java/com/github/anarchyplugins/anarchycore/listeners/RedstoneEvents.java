@@ -1,6 +1,7 @@
 package com.github.anarchyplugins.anarchycore.listeners;
 
 import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.utils.EveryTenSecondsEvent;
 import com.github.anarchyplugins.anarchycore.utils.Util;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -56,4 +57,10 @@ public class RedstoneEvents implements Listener {
             System.out.println(throwable);
         }
     }
+
+    @EventHandler
+    public void onTenSeconds(EveryTenSecondsEvent event){
+        leverHashMap.clear();
+    }
+
 }
