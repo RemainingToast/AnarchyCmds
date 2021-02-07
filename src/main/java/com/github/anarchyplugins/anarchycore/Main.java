@@ -1,11 +1,14 @@
 package com.github.anarchyplugins.anarchycore;
 
-import com.github.anarchyplugins.anarchycore.hooks.PlaceholderExpansion;
+import com.github.anarchyplugins.anarchycore.patches.Boats;
+import com.github.anarchyplugins.anarchycore.utils.PlaceholderExpansion;
+import com.github.anarchyplugins.anarchycore.patches.AntiLag;
+import com.github.anarchyplugins.anarchycore.patches.Nether;
+import com.github.anarchyplugins.anarchycore.utils.ConnectionEvents;
 import com.github.anarchyplugins.anarchycore.utils.EveryTenSecondsEvent;
 import com.github.anarchyplugins.anarchycore.utils.ItemUtil;
 import com.github.anarchyplugins.anarchycore.utils.Util;
 import com.github.anarchyplugins.anarchycore.commands.*;
-import com.github.anarchyplugins.anarchycore.listeners.*;
 import com.google.gson.Gson;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -19,7 +22,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public final class AnarchyCore extends JavaPlugin {
+public final class Main extends JavaPlugin {
 
     public final HashMap<Player, GameMode> gamemodelist = new HashMap<>();
     public final HashMap<Player, Integer> taskidlist = new HashMap<>();
@@ -27,7 +30,7 @@ public final class AnarchyCore extends JavaPlugin {
     private final PluginManager pluginManager = getServer().getPluginManager();
     public static File dataFolder;
     public static Gson gson = new Gson();
-    public static AnarchyCore INSTANCE;
+    public static Main INSTANCE;
 
     EveryTenSecondsEvent tenSecondPassEvent = new EveryTenSecondsEvent(getLogger(), this);
 
@@ -39,20 +42,22 @@ public final class AnarchyCore extends JavaPlugin {
 
         Util.setPrefix(getConfig().getString("prefix"));
 
-        pluginManager.registerEvents(new RedstoneEvents(),this);
-        pluginManager.registerEvents(new ElytraEvents(), this);
-        pluginManager.registerEvents(new MoveEvents(), this);
-        pluginManager.registerEvents(new ConnectionEvents(this), this);
+        pluginManager.registerEvents(new AntiLag(), this);
+        pluginManager.registerEvents(new Boats(), this);
+        pluginManager.registerEvents(new Nether(), this);
 
-        getCommand("toggleconnectionmsgs").setExecutor(new ToggleConnectionMsgsCmd(this));
-        getCommand("kill").setExecutor(new KillCmd(this));
-        getCommand("discord").setExecutor(new DiscordCmd(this));
-        getCommand("gmc").setExecutor(new GmcCmd(this));
-        getCommand("gms").setExecutor(new GmsCmd(this));
-        getCommand("gmsp").setExecutor(new GmspCmd(this));
-        getCommand("help").setExecutor(new HelpCmd(this));
-        getCommand("vanish").setExecutor(new VanishCmd());
-        getCommand("anarchycore").setExecutor(new CoreCmd(this));
+        pluginManager.registerEvents(new ConnectionEvents(), this);
+
+        getCommand("anarchycore").setExecutor(new AnarchyCore());
+        getCommand("discord").setExecutor(new Discord());
+        getCommand("gmc").setExecutor(new GMC());
+        getCommand("gms").setExecutor(new GMS());
+        getCommand("gmsp").setExecutor(new GMSP());
+        getCommand("help").setExecutor(new Help());
+        getCommand("kill").setExecutor(new Kill());
+        getCommand("toggleconnectionmsgs").setExecutor(new ToggleConnectionMsgs());
+        getCommand("vanish").setExecutor(new Vanish());
+
 
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
             new PlaceholderExpansion().register();
@@ -60,15 +65,6 @@ public final class AnarchyCore extends JavaPlugin {
 
         ScheduledExecutorService service = Executors.newScheduledThreadPool(4);
         service.scheduleAtFixedRate(() -> pluginManager.callEvent(tenSecondPassEvent), 1, 10, TimeUnit.SECONDS);
-    }
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-    }
-
-    public ItemUtil getItemUtils(){
-        return new ItemUtil(this);
     }
 
     public boolean isVanished(Player player) {

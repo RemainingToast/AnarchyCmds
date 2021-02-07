@@ -1,13 +1,13 @@
 package com.github.anarchyplugins.anarchycore.commands;
 
-import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.Main;
 import com.github.anarchyplugins.anarchycore.utils.Util;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class VanishCmd implements CommandExecutor {
+public class Vanish implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String alias, String[] args) {
@@ -15,7 +15,7 @@ public class VanishCmd implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
 
-            if (AnarchyCore.INSTANCE.isVanished(player)) {
+            if (Main.INSTANCE.isVanished(player)) {
                 if (player.hasPermission("anarchycore.vanish")) {
                     Util.unvanishPlayer(player);
 

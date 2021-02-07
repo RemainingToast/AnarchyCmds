@@ -1,6 +1,6 @@
 package com.github.anarchyplugins.anarchycore.utils;
 
-import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -18,9 +18,9 @@ import java.util.logging.Level;
 
 public class ItemUtil {
 
-    AnarchyCore plugin;
+    Main plugin;
 
-    public ItemUtil(AnarchyCore plugin) {
+    public ItemUtil(Main plugin) {
         this.plugin = plugin;
     }
 

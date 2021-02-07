@@ -1,6 +1,6 @@
-package com.github.anarchyplugins.anarchycore.listeners;
+package com.github.anarchyplugins.anarchycore.patches;
 
-import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.Main;
 import com.github.anarchyplugins.anarchycore.utils.EveryTenSecondsEvent;
 import com.github.anarchyplugins.anarchycore.utils.Util;
 import org.bukkit.Material;
@@ -10,18 +10,28 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockRedstoneEvent;
+import org.bukkit.event.entity.EntityToggleGlideEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.HashMap;
 
-public class RedstoneEvents implements Listener {
+public class AntiLag implements Listener {
 
     private final HashMap<Player, Integer> leverHashMap = new HashMap<>();
 
     @EventHandler
+    public void onElytra(EntityToggleGlideEvent e){
+        if(e.getEntity() instanceof Player){
+            if(Util.getTps() <= Main.INSTANCE.getConfig().getInt("disable-elytra-tps")){
+                e.setCancelled(true);
+            }
+        }
+    }
+
+    @EventHandler
     public void onRedstone(BlockRedstoneEvent e){
-        double configTps = AnarchyCore.INSTANCE.getConfig().getInt("disable-redstone-tps");
-        double entityTps = AnarchyCore.INSTANCE.getConfig().getInt("delete-entities-tps");
+        double configTps = Main.INSTANCE.getConfig().getInt("disable-redstone-tps");
+        double entityTps = Main.INSTANCE.getConfig().getInt("delete-entities-tps");
         if(configTps == -1) return;
         if(Util.getTps() <= configTps){
             e.setNewCurrent(0);
@@ -62,5 +72,4 @@ public class RedstoneEvents implements Listener {
     public void onTenSeconds(EveryTenSecondsEvent event){
         leverHashMap.clear();
     }
-
 }

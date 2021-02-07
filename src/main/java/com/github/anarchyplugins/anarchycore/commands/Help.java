@@ -1,6 +1,6 @@
 package com.github.anarchyplugins.anarchycore.commands;
 
-import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -8,22 +8,16 @@ import org.bukkit.command.CommandSender;
 
 import java.util.List;
 
-public class HelpCmd implements CommandExecutor {
-
-    AnarchyCore plugin;
-
-    public HelpCmd(AnarchyCore plugin){
-        this.plugin = plugin;
-    }
+public class Help implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(plugin.getConfig().getBoolean("help-command")){
-            List<String> lines = plugin.getConfig().getStringList("messages.help-message");
+        if(Main.INSTANCE.getConfig().getBoolean("help-command")){
+            List<String> lines = Main.INSTANCE.getConfig().getStringList("messages.help-message");
             String str = String.join("\n", lines);
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
         } else {
-            String str = plugin.getConfig().getString("messages.command-disabled");
+            String str = Main.INSTANCE.getConfig().getString("messages.command-disabled");
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
         }
         return true;

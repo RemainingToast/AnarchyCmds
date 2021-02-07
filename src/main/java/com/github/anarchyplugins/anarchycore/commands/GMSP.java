@@ -1,28 +1,22 @@
 package com.github.anarchyplugins.anarchycore.commands;
 
-import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class GmsCmd implements CommandExecutor {
-
-    AnarchyCore plugin;
-
-    public GmsCmd(AnarchyCore plugin) {
-        this.plugin = plugin;
-    }
+public class GMSP implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player p = (Player) sender;
         if(p != null){
-            if(plugin.getConfig().getBoolean("gamemode-aliases-cmd")){
-                p.performCommand("gamemode survival");
+            if(Main.INSTANCE.getConfig().getBoolean("gamemode-aliases-cmd")){
+                p.performCommand("gamemode spectator");
             } else {
-                String str = plugin.getConfig().getString("messages.command-disabled");
+                String str = Main.INSTANCE.getConfig().getString("messages.command-disabled");
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
             }
         }

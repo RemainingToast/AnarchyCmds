@@ -6,6 +6,7 @@ help-command: true
 discord-command: true
 kill-command: true
 # Exploits
+patch-boatfly: false
 disable-redstone-tps: 15
 delete-entities-tps: 5
 disable-elytra-tps: 13

@@ -1,7 +1,6 @@
-package com.github.anarchyplugins.anarchycore.hooks;
+package com.github.anarchyplugins.anarchycore.utils;
 
-import com.github.anarchyplugins.anarchycore.AnarchyCore;
-import com.github.anarchyplugins.anarchycore.utils.Util;
+import com.github.anarchyplugins.anarchycore.Main;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 
@@ -18,7 +17,7 @@ public class PlaceholderExpansion extends me.clip.placeholderapi.expansion.Place
 
     @Override
     public @NotNull String getVersion() {
-        return AnarchyCore.INSTANCE.getDescription().getVersion();
+        return Main.INSTANCE.getDescription().getVersion();
     }
 
     @Override

@@ -1,23 +1,17 @@
 package com.github.anarchyplugins.anarchycore.commands;
 
-import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class DiscordCmd implements CommandExecutor {
-
-    AnarchyCore plugin;
-
-    public DiscordCmd(AnarchyCore plugin){
-        this.plugin = plugin;
-    }
+public class Discord implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(plugin.getConfig().getBoolean("discord-command")){
-            String str = plugin.getConfig().getString("messages.discord-message");
+        if(Main.INSTANCE.getConfig().getBoolean("discord-command")){
+            String str = Main.INSTANCE.getConfig().getString("messages.discord-message");
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
             return true;
         }

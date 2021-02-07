@@ -1,8 +1,7 @@
-package com.github.anarchyplugins.anarchycore.listeners;
+package com.github.anarchyplugins.anarchycore.utils;
 
-import com.github.anarchyplugins.anarchycore.AnarchyCore;
-import com.github.anarchyplugins.anarchycore.commands.ToggleConnectionMsgsCmd;
-import com.github.anarchyplugins.anarchycore.utils.Util;
+import com.github.anarchyplugins.anarchycore.Main;
+import com.github.anarchyplugins.anarchycore.commands.ToggleConnectionMsgs;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -13,29 +12,23 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class ConnectionEvents implements Listener {
 
-    AnarchyCore plugin;
-
-    public ConnectionEvents(AnarchyCore plugin){
-        this.plugin = plugin;
-    }
-
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         e.setJoinMessage(null);
         Player p = e.getPlayer();
-        for (Player vanished: plugin.gamemodelist.keySet()){
-            p.hidePlayer(plugin, vanished);
+        for (Player vanished: Main.INSTANCE.gamemodelist.keySet()){
+            p.hidePlayer(Main.INSTANCE, vanished);
         }
-        if(plugin.getConfig().getBoolean("in-game-motd")){
-            String motd = plugin.getConfig().getString("messages.in-game-motd");
+        if(Main.INSTANCE.getConfig().getBoolean("in-game-motd")){
+            String motd = Main.INSTANCE.getConfig().getString("messages.in-game-motd");
             motd = motd.replaceAll("%player%", p.getName());
             Util.sendMessage(p, motd);
         }
         for(Player player : Bukkit.getOnlinePlayers()){
-            ToggleConnectionMsgsCmd.toggled.putIfAbsent(player.getUniqueId().toString(), true);
-            if(ToggleConnectionMsgsCmd.toggled.get(player.getUniqueId().toString())){
+            ToggleConnectionMsgs.toggled.putIfAbsent(player.getUniqueId().toString(), true);
+            if(ToggleConnectionMsgs.toggled.get(player.getUniqueId().toString())){
                 try {
-                    String joinMsg = plugin.getConfig().getString("messages.join-message").replace("%player%", p.getName());
+                    String joinMsg = Main.INSTANCE.getConfig().getString("messages.join-message").replace("%player%", p.getName());
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', joinMsg));
                 } catch (Exception ex) {
                     System.out.println(ex.toString());
@@ -48,10 +41,11 @@ public class ConnectionEvents implements Listener {
     public void onQuit(PlayerQuitEvent e){
         e.setQuitMessage(null);
         for (Player player : Bukkit.getOnlinePlayers()){
-            if (ToggleConnectionMsgsCmd.toggled.get(player.getUniqueId().toString())){
-                String quitMsg = plugin.getConfig().getString("messages.quit-message").replace("%player%", e.getPlayer().getName());
+            if (ToggleConnectionMsgs.toggled.get(player.getUniqueId().toString())){
+                String quitMsg = Main.INSTANCE.getConfig().getString("messages.quit-message").replace("%player%", e.getPlayer().getName());
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', quitMsg));
             }
+            if(Main.INSTANCE.isVanished(player)) Util.unvanishPlayer(player);
         }
     }
 }

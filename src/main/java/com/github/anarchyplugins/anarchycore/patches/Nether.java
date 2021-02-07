@@ -1,6 +1,6 @@
-package com.github.anarchyplugins.anarchycore.listeners;
+package com.github.anarchyplugins.anarchycore.patches;
 
-import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.Main;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -10,11 +10,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 
-public class MoveEvents implements Listener {
+public class Nether implements Listener {
 
     @EventHandler
     public void onMove(PlayerMoveEvent e){
-        if(AnarchyCore.INSTANCE.getConfig().getBoolean("disable-netherroof")){
+        if(Main.INSTANCE.getConfig().getBoolean("disable-netherroof")){
             Player p = e.getPlayer();
             if(p.isOp()) return;
             int x = p.getLocation().getBlockX();

@@ -1,6 +1,6 @@
 package com.github.anarchyplugins.anarchycore.utils;
 
-import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.Main;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
@@ -9,9 +9,9 @@ import java.util.logging.Logger;
 public class EveryTenSecondsEvent extends Event {
     private static final HandlerList handlers = new HandlerList();
     private final Logger logger;
-    private final AnarchyCore plugin;
+    private final Main plugin;
 
-    public EveryTenSecondsEvent(Logger logger, AnarchyCore main) {
+    public EveryTenSecondsEvent(Logger logger, Main main) {
         this.logger = logger;
         plugin = main;
     }
@@ -24,7 +24,7 @@ public class EveryTenSecondsEvent extends Event {
         return logger;
     }
 
-    public AnarchyCore getPlugin() {
+    public Main getPlugin() {
         return plugin;
     }
 

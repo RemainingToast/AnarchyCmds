@@ -1,29 +1,24 @@
 package com.github.anarchyplugins.anarchycore.commands;
 
-import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class KillCmd implements CommandExecutor {
-
-    AnarchyCore plugin;
-    public KillCmd(AnarchyCore plugin){
-        this.plugin = plugin;
-    }
+public class Kill implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player p = (Player) sender;
-        if(plugin.getConfig().getBoolean("kill-command")){
+        if(Main.INSTANCE.getConfig().getBoolean("kill-command")){
             if(p != null){
                 p.setHealth(0);
                 return true;
             }
         } else {
-            String str = plugin.getConfig().getString("messages.command-disabled");
+            String str = Main.INSTANCE.getConfig().getString("messages.command-disabled");
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', str));
         }
         return false;

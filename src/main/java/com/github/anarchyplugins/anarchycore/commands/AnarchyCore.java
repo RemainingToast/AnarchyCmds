@@ -1,6 +1,6 @@
 package com.github.anarchyplugins.anarchycore.commands;
 
-import com.github.anarchyplugins.anarchycore.AnarchyCore;
+import com.github.anarchyplugins.anarchycore.Main;
 import com.github.anarchyplugins.anarchycore.utils.Util;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -9,13 +9,9 @@ import org.bukkit.command.TabExecutor;
 import java.util.Arrays;
 import java.util.List;
 
-public class CoreCmd implements TabExecutor {
+public class AnarchyCore implements TabExecutor {
 
-    AnarchyCore plugin;
-
-    public CoreCmd(AnarchyCore plugin){
-        this.plugin = plugin;
-    }
+    Main plugin = Main.INSTANCE;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
