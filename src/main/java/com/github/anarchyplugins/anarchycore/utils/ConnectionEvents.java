@@ -15,8 +15,6 @@ public class ConnectionEvents implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         e.setJoinMessage(null);
-        String joinMsg = Main.INSTANCE.getConfig().getString("messages.join-message");
-        if(joinMsg == null || joinMsg.equalsIgnoreCase("")) return;
         Player p = e.getPlayer();
         for (Player vanished: Main.INSTANCE.gamemodelist.keySet()){
             p.hidePlayer(Main.INSTANCE, vanished);
@@ -30,6 +28,8 @@ public class ConnectionEvents implements Listener {
             ToggleConnectionMsgs.toggled.putIfAbsent(player.getUniqueId().toString(), true);
             if(ToggleConnectionMsgs.toggled.get(player.getUniqueId().toString())){
                 try {
+                    String joinMsg = Main.INSTANCE.getConfig().getString("messages.join-message");
+                    if(joinMsg == null || joinMsg.equalsIgnoreCase("")) return;
                     joinMsg = joinMsg.replace("%player%", p.getName());
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', joinMsg));
                 } catch (Exception ex) {
@@ -42,10 +42,10 @@ public class ConnectionEvents implements Listener {
     @EventHandler
     public void onQuit(PlayerQuitEvent e){
         e.setQuitMessage(null);
-        String quitMsg = Main.INSTANCE.getConfig().getString("messages.quit-message");
-        if (quitMsg == null || quitMsg.equalsIgnoreCase("")) return;
         for (Player player : Bukkit.getOnlinePlayers()){
             if (ToggleConnectionMsgs.toggled.get(player.getUniqueId().toString())){
+                String quitMsg = Main.INSTANCE.getConfig().getString("messages.quit-message");
+                if (quitMsg == null || quitMsg.equalsIgnoreCase("")) return;
                 quitMsg = quitMsg.replace("%player%", e.getPlayer().getName());
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', quitMsg));
             }
