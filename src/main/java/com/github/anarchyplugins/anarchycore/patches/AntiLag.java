@@ -4,6 +4,7 @@ import com.github.anarchyplugins.anarchycore.Main;
 import com.github.anarchyplugins.anarchycore.utils.EveryTenSecondsEvent;
 import com.github.anarchyplugins.anarchycore.utils.Util;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,6 +24,7 @@ public class AntiLag implements Listener {
     public void onElytra(EntityToggleGlideEvent e){
         if(e.getEntity() instanceof Player){
             if(Util.getTps() <= Main.INSTANCE.getConfig().getInt("disable-elytra-tps")){
+                if(Main.INSTANCE.getConfig().getBoolean("debug")) System.out.println("Disabled Elytra");
                 e.setCancelled(true);
             }
         }
@@ -30,14 +32,17 @@ public class AntiLag implements Listener {
 
     @EventHandler
     public void onRedstone(BlockRedstoneEvent e){
-        double configTps = Main.INSTANCE.getConfig().getInt("disable-redstone-tps");
-        double entityTps = Main.INSTANCE.getConfig().getInt("delete-entities-tps");
+        FileConfiguration config = Main.INSTANCE.getConfig();
+        double configTps = config.getInt("disable-redstone-tps");
+        double entityTps = config.getInt("delete-entities-tps");
         if(configTps == -1) return;
         if(Util.getTps() <= configTps){
             e.setNewCurrent(0);
+            if(config.getBoolean("debug")) System.out.println("Disabled redstone at " + e.getBlock().getLocation());
             if(Util.getTps() <= entityTps){
                 for (Entity entity : e.getBlock().getChunk().getEntities()) {
                     if (!(entity instanceof Player)) {
+                        if(config.getBoolean("debug")) System.out.println("Removed entity: " + entity.getName() + " at " + entity.getLocation());
                         entity.remove();
                     }
                 }

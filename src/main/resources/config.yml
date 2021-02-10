@@ -1,4 +1,5 @@
 prefix: "&8[&2&lAnarchy&4&lCore&r&8]&r "
+debug: false
 # Commands
 gamemode-aliases-cmd: true
 toggle-connection-msgs-cmd: true
@@ -7,6 +8,7 @@ discord-command: true
 kill-command: true
 # Exploits
 patch-boatfly: false
+patch-offhand-crash: true
 disable-redstone-tps: 15
 delete-entities-tps: 5
 disable-elytra-tps: 13

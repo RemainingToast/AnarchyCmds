@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Boat;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -40,7 +41,12 @@ public class Boats implements Listener {
                         if (distY != -0.439999999105936) { // Minecraft has an exact Y distance number for boats
                             if (finalValue > 0.50 || distY > 0.0) {
                                 evt.setCancelled(true);
-                                evt.getPlayer().getVehicle().eject();
+                                Player p = evt.getPlayer();
+                                p.getVehicle().eject();
+                                if(config.getBoolean("debug")) {
+                                    String str = "x " + p.getLocation().getBlockX() + ", y " + p.getLocation().getBlockY() + ", z " + p.getLocation().getBlockZ();
+                                    System.out.println("Stopped Boat Fly for " + p.getDisplayName() + " at [" + str + "]");
+                                }
                             }
                         }
                     }
