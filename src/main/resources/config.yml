@@ -10,7 +10,6 @@ patch-boatfly: false
 disable-redstone-tps: 15
 delete-entities-tps: 5
 disable-elytra-tps: 13
-disable-netherroof: true
 # Features
 random-motd: true
 in-game-motd: true

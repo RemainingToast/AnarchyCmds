@@ -3,10 +3,8 @@ package com.github.anarchyplugins.anarchycore;
 import com.github.anarchyplugins.anarchycore.patches.Boats;
 import com.github.anarchyplugins.anarchycore.utils.PlaceholderExpansion;
 import com.github.anarchyplugins.anarchycore.patches.AntiLag;
-import com.github.anarchyplugins.anarchycore.patches.Nether;
 import com.github.anarchyplugins.anarchycore.utils.ConnectionEvents;
 import com.github.anarchyplugins.anarchycore.utils.EveryTenSecondsEvent;
-import com.github.anarchyplugins.anarchycore.utils.ItemUtil;
 import com.github.anarchyplugins.anarchycore.utils.Util;
 import com.github.anarchyplugins.anarchycore.commands.*;
 import com.google.gson.Gson;
@@ -44,7 +42,6 @@ public final class Main extends JavaPlugin {
 
         pluginManager.registerEvents(new AntiLag(), this);
         pluginManager.registerEvents(new Boats(), this);
-        pluginManager.registerEvents(new Nether(), this);
 
         pluginManager.registerEvents(new ConnectionEvents(), this);
 
