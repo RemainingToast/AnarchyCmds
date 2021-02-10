@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.event.block.BlockRedstoneEvent;
 import org.bukkit.event.entity.EntityToggleGlideEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -70,6 +71,13 @@ public class AntiLag implements Listener {
             }
         } catch (Error | Exception throwable) {
             System.out.println(throwable);
+        }
+    }
+
+    @EventHandler
+    public void onDispense(BlockDispenseEvent e){
+        if(Main.INSTANCE.getConfig().getBoolean("patch-dispenser-crash")){
+            if(e.getBlock().getY() >= 255 || e.getBlock().getY() <= 0) e.setCancelled(true);
         }
     }
 
