@@ -5,71 +5,58 @@ ___
 ### Features
 
 * Very Configurable
-* Prevents Illegal Items
+* Patch Boat Fly
+* Customizable Help Message
+* Kill Command  
 * Gamemode Aliases
-___
-
-### Commands
-##### Player
-* /discord \- Link to Discord
-* /kill \- Suicide command
-* /help \- Configurable help menu for players
-* /tc \- Toggles on / off the join messages for the player who sent the command
-##### Admin
-* /anarchycore \- Base plugin command
-* /gmc|gms|gmsp \- Gamemode Aliases
-___
+* Hide Connection Msgs Command
+* Custom Discord Command
+* Patch Lag caused by elytras/entities/redstone
 
 ### Config
 <details>
 
 ```yml
 prefix: "&8[&2&lAnarchy&4&lCore&r&8]&r "
-gamemode-aliases:
-  enabled: true
-toggle-connection-msgs:
-  enabled: true
-  on-msg: "&aConnection messages are now SHOWN"
-  off-msg: "&cConnection messages are now HIDDEN"
-connection-messages:
-  first-join-message: "&b%player% joined for the first time"
+# Commands
+gamemode-aliases-cmd: true
+toggle-connection-msgs-cmd: true
+help-command: true
+discord-command: true
+kill-command: true
+# Exploits
+patch-boatfly: false
+disable-redstone-tps: 15
+delete-entities-tps: 5
+disable-elytra-tps: 13
+# Features
+random-motd: true
+in-game-motd: true
+# Messages
+messages:
+  connection-cmd-on: "&aConnection messages are now SHOWN"
+  connection-cmd-off: "&cConnection messages are now HIDDEN"
   join-message: "&7%player% joined the game"
   quit-message: "&7%player% has left the game"
-help:
-  enabled: true
-  message:
+  discord-message: "&cOfficial Discord: &2https://discord.gg/JEuhBr3GWg"
+  command-disabled: "&cCommand Disabled"
+  in-game-motd: "&4Welcome to hell, cunt"
+  help-message:
     - "&6-----------------------------------------------------"
-    - "&3/spawn teleport to spawn"
-    - "&3/toggleconnectionmsgs to toggle join and leave messages."
-    - "&3/kill to kill yourself."
+    - "&3/w <player> - Send pm to player"
+    - "&3/r - Reply to last pm"
+    - "&3/ignore <player> - Ignore someones messages"
+    - "&3/ignorelist - See ignore list"
+    - "&3/togglechat - Toggle chat messages entirely"
+    - "&3/togglewhispering - Toggle whether you receive pms"
+    - "&3/toggledeathmsg - Toggle death messages"
+    - "&3/namecolour <colour> - Change Namecolour"
+    - "&3/namecolourcheck - See remaining namecolor time"
+    - "&3/vote - Vote for the server 8hrs of namecolour each link"
+    - "&3/discord - Official Link"
+    - "&3/tcm - Toggle connection messages."
+    - "&3/kill - Kill yourself."
     - "&6-----------------------------------------------------"
-kill:
-  enabled: true
-only-proxy-join:
-  enabled: true
-  whitelist:
-    - 127.0.0.1
-  kick-message: '&cYou have to join through the proxy.'
-illegal-items:
-  remove-overstacked: true
-  remove-potions: true
-  checks:
-    chunk-load: true
-    inventory: true
-    pickup: true
-    hopper-move: true
-    block-place: true
-  blacklist:
-    - "BEDROCK"
-    - "COMMAND_REPEATING"
-    - "COMMAND_MINECART"
-    - "COMMAND_CHAIN"
-    - "COMMAND"
-    - "ENDER_PORTAL_FRAME"
-    - "KNOWLEDGE_BOOK"
-    - "MOB_SPAWNER"
-    - "PORTAL"
-    - "STRUCTURE_BLOCK"
-    - "STRUCTURE_VOID"
+
 ```
 </details>
