@@ -8,8 +8,9 @@ discord-command: true
 kill-command: true
 # Exploits
 patch-boatfly: false
-patch-dispenser-crsah: true
+patch-dispenser-crash: true
 patch-offhand-crash: true
+limit-mob-ai: true
 disable-redstone-tps: 15
 delete-entities-tps: 5
 disable-elytra-tps: 13

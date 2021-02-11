@@ -1,6 +1,7 @@
 package com.github.anarchyplugins.anarchycore;
 
 import com.github.anarchyplugins.anarchycore.patches.Boats;
+import com.github.anarchyplugins.anarchycore.patches.Mobs;
 import com.github.anarchyplugins.anarchycore.utils.PlaceholderExpansion;
 import com.github.anarchyplugins.anarchycore.patches.AntiLag;
 import com.github.anarchyplugins.anarchycore.utils.ConnectionEvents;
@@ -55,6 +56,7 @@ public final class Main extends JavaPlugin {
         getCommand("toggleconnectionmsgs").setExecutor(new ToggleConnectionMsgs());
         getCommand("vanish").setExecutor(new Vanish());
 
+        if(getConfig().getBoolean("limit-mob-ai")) new Mobs().enable();
 
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
             new PlaceholderExpansion().register();
