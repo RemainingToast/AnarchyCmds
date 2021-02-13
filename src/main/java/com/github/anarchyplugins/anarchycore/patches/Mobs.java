@@ -14,7 +14,12 @@ public class Mobs {
                     for (Entity e : world.getEntities()){
                         if(e instanceof LivingEntity){
                             LivingEntity entity = (LivingEntity) e;
-                            entity.setAI(!shouldLimitEntity(entity));
+                            if(shouldLimitEntity(entity)){
+                                entity.setAI(false);
+                                if(Main.INSTANCE.getConfig().getBoolean("debug")){
+                                    System.out.println("Disabled entity: " + entity + "'s AI at: " + entity.getLocation());
+                                }
+                            } else entity.setAI(true);
                         }
                     }
                 }
@@ -24,6 +29,7 @@ public class Mobs {
 
 
     private boolean shouldLimitEntity(LivingEntity entity) {
+        if(!Main.INSTANCE.getConfig().getBoolean("limit-mob-ai")) return false;
         switch (entity.getType()) {
             case BAT:
             case RABBIT:
@@ -33,9 +39,8 @@ public class Mobs {
                 return true;
             default:
         }
-
-        if(     /* entity has nametag */
-                entity.getCustomName() != null
+        // getCustomName() = NameTag
+        if(entity.getCustomName() != null
                 || entity instanceof Wolf
                 || entity instanceof Parrot
                 || entity.fromMobSpawner() && getPlayerCount() < 110) {

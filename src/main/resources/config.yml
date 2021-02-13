@@ -10,10 +10,10 @@ kill-command: true
 patch-boatfly: false
 patch-dispenser-crash: true
 patch-offhand-crash: true
-limit-mob-ai: true
-disable-redstone-tps: 15
-delete-entities-tps: 5
-disable-elytra-tps: 13
+limit-mob-ai: false
+disable-redstone-tps: 17
+delete-entities-tps: 10
+disable-elytra-tps: 15
 # Features
 random-motd: true
 in-game-motd: true

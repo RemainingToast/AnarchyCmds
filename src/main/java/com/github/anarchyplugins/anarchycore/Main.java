@@ -38,6 +38,7 @@ public final class Main extends JavaPlugin {
         INSTANCE = this;
         saveDefaultConfig();
         dataFolder = this.getDataFolder();
+        new Mobs().enable();
 
         Util.setPrefix(getConfig().getString("prefix"));
 
@@ -56,7 +57,6 @@ public final class Main extends JavaPlugin {
         getCommand("toggleconnectionmsgs").setExecutor(new ToggleConnectionMsgs());
         getCommand("vanish").setExecutor(new Vanish());
 
-        if(getConfig().getBoolean("limit-mob-ai")) new Mobs().enable();
 
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
             new PlaceholderExpansion().register();
