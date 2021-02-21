@@ -1,6 +1,6 @@
-package com.github.anarchyplugins.anarchycore.utils;
+package com.github.anarchyplugins.anarchycmds.utils;
 
-import com.github.anarchyplugins.anarchycore.Main;
+import com.github.anarchyplugins.anarchycmds.Main;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;

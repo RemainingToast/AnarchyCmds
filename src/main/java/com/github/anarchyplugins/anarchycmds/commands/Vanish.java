@@ -1,7 +1,7 @@
-package com.github.anarchyplugins.anarchycore.commands;
+package com.github.anarchyplugins.anarchycmds.commands;
 
-import com.github.anarchyplugins.anarchycore.Main;
-import com.github.anarchyplugins.anarchycore.utils.Util;
+import com.github.anarchyplugins.anarchycmds.Main;
+import com.github.anarchyplugins.anarchycmds.utils.Util;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,7 +16,7 @@ public class Vanish implements CommandExecutor {
             Player player = (Player) sender;
 
             if (Main.INSTANCE.isVanished(player)) {
-                if (player.hasPermission("anarchycore.vanish")) {
+                if (player.hasPermission("anarchycmds.vanish")) {
                     Util.unvanishPlayer(player);
 
                     player.sendMessage("You are now unvanished!");
@@ -24,7 +24,7 @@ public class Vanish implements CommandExecutor {
                     sender.sendMessage("You have no permission to do that!");
                 }
             } else {
-                if (player.hasPermission("anarchycore.vanish")) {
+                if (player.hasPermission("anarchycmds.vanish")) {
                     Util.vanishPlayer(player);
 
                     player.sendMessage("You are now vanished!");

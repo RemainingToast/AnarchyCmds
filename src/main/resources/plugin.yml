@@ -8,10 +8,10 @@ softdepend: [PlaceholderAPI]
 commands:
   toggleconnectionmsgs:
     description: Toggle join/leave message visibility.
-    aliases: ["tcm"]
-  anarchycore:
+    aliases: ["tcmsg"]
+  anarchycmds:
     description: Core command
-    aliases: ["ac"]
+    aliases: ["ac", "anarchycmds"]
   discord:
     description: Official Discord Link.
   kill:

@@ -1,23 +1,11 @@
-prefix: "&8[&2&lAnarchy&4&lCore&r&8]&r "
+prefix: "&8[&2&lAnarchy&4&lCommands&r&8]&r "
 debug: false
-# Commands
 gamemode-aliases-cmd: true
 toggle-connection-msgs-cmd: true
 help-command: true
 discord-command: true
 kill-command: true
-# Exploits
-patch-boatfly: false
-patch-dispenser-crash: true
-patch-offhand-crash: true
-limit-mob-ai: false
-disable-redstone-tps: 17
-delete-entities-tps: 10
-disable-elytra-tps: 15
-# Features
-random-motd: true
 in-game-motd: true
-# Messages
 messages:
   connection-cmd-on: "&aConnection messages are now SHOWN"
   connection-cmd-off: "&cConnection messages are now HIDDEN"
@@ -33,12 +21,10 @@ messages:
     - "&3/ignore <player> - Ignore someones messages"
     - "&3/ignorelist - See ignore list"
     - "&3/togglechat - Toggle chat messages entirely"
-    - "&3/togglewhispering - Toggle whether you receive pms"
     - "&3/toggledeathmsg - Toggle death messages"
-    - "&3/namecolour <colour> - Change Namecolour"
-    - "&3/namecolourcheck - See remaining namecolor time"
+    - "&3/togglewhispering - Toggle whether you receive pms"
+    - "&3/toggleconnectionmsgs - Toggle connection messages."
     - "&3/vote - Vote for the server 8hrs of namecolour each link"
     - "&3/discord - Official Link"
-    - "&3/tcm - Toggle connection messages."
     - "&3/kill - Kill yourself."
     - "&6-----------------------------------------------------"

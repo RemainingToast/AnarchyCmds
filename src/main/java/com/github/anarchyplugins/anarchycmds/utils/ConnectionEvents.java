@@ -1,8 +1,7 @@
-package com.github.anarchyplugins.anarchycore.utils;
+package com.github.anarchyplugins.anarchycmds.utils;
 
-import com.github.anarchyplugins.anarchycore.Main;
-import com.github.anarchyplugins.anarchycore.commands.ToggleConnectionMsgs;
-import com.github.anarchyplugins.anarchycore.patches.Offhand;
+import com.github.anarchyplugins.anarchycmds.Main;
+import com.github.anarchyplugins.anarchycmds.commands.ToggleConnectionMsgs;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -17,8 +16,6 @@ public class ConnectionEvents implements Listener {
     public void onJoin(PlayerJoinEvent e){
         e.setJoinMessage(null);
         Player p = e.getPlayer();
-        Offhand.lastChange.putIfAbsent(p, System.currentTimeMillis());
-        Offhand.warnings.putIfAbsent(p, 0);
         for (Player vanished: Main.INSTANCE.gamemodelist.keySet()){
             p.hidePlayer(Main.INSTANCE, vanished);
         }

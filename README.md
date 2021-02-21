@@ -1,4 +1,4 @@
-# AnarchyCommands
+# AnarchyCmds
 ### Plugin for Anarchy related commands
 ___
 

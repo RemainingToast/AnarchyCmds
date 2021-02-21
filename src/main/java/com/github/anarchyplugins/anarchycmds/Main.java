@@ -1,13 +1,9 @@
-package com.github.anarchyplugins.anarchycore;
+package com.github.anarchyplugins.anarchycmds;
 
-import com.github.anarchyplugins.anarchycore.patches.Boats;
-import com.github.anarchyplugins.anarchycore.patches.Mobs;
-import com.github.anarchyplugins.anarchycore.utils.PlaceholderExpansion;
-import com.github.anarchyplugins.anarchycore.patches.AntiLag;
-import com.github.anarchyplugins.anarchycore.utils.ConnectionEvents;
-import com.github.anarchyplugins.anarchycore.utils.EveryTenSecondsEvent;
-import com.github.anarchyplugins.anarchycore.utils.Util;
-import com.github.anarchyplugins.anarchycore.commands.*;
+import com.github.anarchyplugins.anarchycmds.commands.*;
+import com.github.anarchyplugins.anarchycmds.utils.ConnectionEvents;
+import com.github.anarchyplugins.anarchycmds.utils.PlaceholderExpansion;
+import com.github.anarchyplugins.anarchycmds.utils.Util;
 import com.google.gson.Gson;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -17,9 +13,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.util.HashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public final class Main extends JavaPlugin {
 
@@ -31,23 +24,17 @@ public final class Main extends JavaPlugin {
     public static Gson gson = new Gson();
     public static Main INSTANCE;
 
-    EveryTenSecondsEvent tenSecondPassEvent = new EveryTenSecondsEvent(getLogger(), this);
-
     @Override
     public void onEnable() {
         INSTANCE = this;
         saveDefaultConfig();
         dataFolder = this.getDataFolder();
-        new Mobs().enable();
 
         Util.setPrefix(getConfig().getString("prefix"));
 
-        pluginManager.registerEvents(new AntiLag(), this);
-        pluginManager.registerEvents(new Boats(), this);
-
         pluginManager.registerEvents(new ConnectionEvents(), this);
 
-        getCommand("anarchycore").setExecutor(new AnarchyCore());
+        getCommand("anarchycore").setExecutor(new CoreCmd());
         getCommand("discord").setExecutor(new Discord());
         getCommand("gmc").setExecutor(new GMC());
         getCommand("gms").setExecutor(new GMS());
@@ -56,14 +43,11 @@ public final class Main extends JavaPlugin {
         getCommand("kill").setExecutor(new Kill());
         getCommand("toggleconnectionmsgs").setExecutor(new ToggleConnectionMsgs());
         getCommand("vanish").setExecutor(new Vanish());
-
+        getCommand("playtime").setExecutor(new Playtime());
 
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
             new PlaceholderExpansion().register();
         }
-
-        ScheduledExecutorService service = Executors.newScheduledThreadPool(4);
-        service.scheduleAtFixedRate(() -> pluginManager.callEvent(tenSecondPassEvent), 1, 10, TimeUnit.SECONDS);
     }
 
     public boolean isVanished(Player player) {

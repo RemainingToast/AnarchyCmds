@@ -1,7 +1,7 @@
-package com.github.anarchyplugins.anarchycore.commands;
+package com.github.anarchyplugins.anarchycmds.commands;
 
-import com.github.anarchyplugins.anarchycore.Main;
-import com.github.anarchyplugins.anarchycore.utils.Util;
+import com.github.anarchyplugins.anarchycmds.Main;
+import com.github.anarchyplugins.anarchycmds.utils.Util;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -9,13 +9,13 @@ import org.bukkit.command.TabExecutor;
 import java.util.Arrays;
 import java.util.List;
 
-public class AnarchyCore implements TabExecutor {
+public class CoreCmd implements TabExecutor {
 
     Main plugin = Main.INSTANCE;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(sender.hasPermission("anarchycore.corecommand")){
+        if(sender.hasPermission("anarchycommands.core")){
             if(args.length > 0){
                 switch (args[0].toLowerCase()){
                     case "reload": {

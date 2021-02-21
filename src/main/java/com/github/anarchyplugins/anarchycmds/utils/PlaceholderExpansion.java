@@ -1,13 +1,13 @@
-package com.github.anarchyplugins.anarchycore.utils;
+package com.github.anarchyplugins.anarchycmds.utils;
 
-import com.github.anarchyplugins.anarchycore.Main;
+import com.github.anarchyplugins.anarchycmds.Main;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 
 public class PlaceholderExpansion extends me.clip.placeholderapi.expansion.PlaceholderExpansion {
     @Override
     public @NotNull String getIdentifier() {
-        return "anarchycore";
+        return "anarchycmds";
     }
 
     @Override

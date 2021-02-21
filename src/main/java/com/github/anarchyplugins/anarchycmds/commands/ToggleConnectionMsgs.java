@@ -1,6 +1,6 @@
-package com.github.anarchyplugins.anarchycore.commands;
+package com.github.anarchyplugins.anarchycmds.commands;
 
-import com.github.anarchyplugins.anarchycore.Main;
+import com.github.anarchyplugins.anarchycmds.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
