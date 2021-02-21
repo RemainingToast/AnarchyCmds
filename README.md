@@ -6,22 +6,14 @@ ___
 <details>
 
 ```yml
-prefix: "&8[&2&lAnarchy&4&lCore&r&8]&r "
-# Commands
+prefix: "&8[&2&lAnarchy&4&lCommands&r&8]&r "
+debug: false
 gamemode-aliases-cmd: true
 toggle-connection-msgs-cmd: true
 help-command: true
 discord-command: true
 kill-command: true
-# Exploits
-patch-boatfly: false
-disable-redstone-tps: 15
-delete-entities-tps: 5
-disable-elytra-tps: 13
-# Features
-random-motd: true
 in-game-motd: true
-# Messages
 messages:
   connection-cmd-on: "&aConnection messages are now SHOWN"
   connection-cmd-off: "&cConnection messages are now HIDDEN"
@@ -46,6 +38,5 @@ messages:
     - "&3/tcm - Toggle connection messages."
     - "&3/kill - Kill yourself."
     - "&6-----------------------------------------------------"
-
 ```
 </details>
