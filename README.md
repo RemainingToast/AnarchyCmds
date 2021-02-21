@@ -1,17 +1,6 @@
-# AnarchyCore
-### All in one plugin for Anarchy Servers
+# AnarchyCommands
+### Plugin for Anarchy related commands
 ___
-
-### Features
-
-* Very Configurable
-* Patch Boat Fly
-* Customizable Help Message
-* Kill Command  
-* Gamemode Aliases
-* Hide Connection Msgs Command
-* Custom Discord Command
-* Patch Lag caused by elytras/entities/redstone
 
 ### Config
 <details>
