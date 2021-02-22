@@ -1,6 +1,6 @@
-package com.github.anarchyplugins.anarchycmds.utils;
+package com.github.anarchycmds.utils;
 
-import com.github.anarchyplugins.anarchycmds.Main;
+import com.github.anarchycmds.Main;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 

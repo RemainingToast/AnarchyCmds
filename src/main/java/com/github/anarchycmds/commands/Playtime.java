@@ -1,4 +1,4 @@
-package com.github.anarchyplugins.anarchycmds.commands;
+package com.github.anarchycmds.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

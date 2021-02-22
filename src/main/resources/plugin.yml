@@ -1,8 +1,8 @@
-name: AnarchyCore
+name: AnarchyCmds
 version: ${project.version}
-main: com.github.anarchyplugins.anarchycore.Main
+main: com.github.anarchycmds.Main
 api-version: 1.12
-prefix: AnarchyCore
+prefix: AnarchyCmds
 authors: [ RemainingToast ]
 softdepend: [PlaceholderAPI]
 commands:

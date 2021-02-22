@@ -1,7 +1,7 @@
-package com.github.anarchyplugins.anarchycmds.commands;
+package com.github.anarchycmds.commands;
 
-import com.github.anarchyplugins.anarchycmds.Main;
-import com.github.anarchyplugins.anarchycmds.utils.Util;
+import com.github.anarchycmds.Main;
+import com.github.anarchycmds.utils.Util;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;

@@ -1,7 +1,7 @@
-package com.github.anarchyplugins.anarchycmds.utils;
+package com.github.anarchycmds.utils;
 
-import com.github.anarchyplugins.anarchycmds.Main;
-import com.github.anarchyplugins.anarchycmds.commands.ToggleConnectionMsgs;
+import com.github.anarchycmds.Main;
+import com.github.anarchycmds.commands.ToggleConnectionMsgs;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

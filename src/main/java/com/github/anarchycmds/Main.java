@@ -1,10 +1,9 @@
-package com.github.anarchyplugins.anarchycmds;
+package com.github.anarchycmds;
 
-import com.github.anarchyplugins.anarchycmds.commands.*;
-import com.github.anarchyplugins.anarchycmds.utils.ConnectionEvents;
-import com.github.anarchyplugins.anarchycmds.utils.PlaceholderExpansion;
-import com.github.anarchyplugins.anarchycmds.utils.Util;
-import com.google.gson.Gson;
+import com.github.anarchycmds.commands.*;
+import com.github.anarchycmds.utils.ConnectionEvents;
+import com.github.anarchycmds.utils.PlaceholderExpansion;
+import com.github.anarchycmds.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -21,7 +20,6 @@ public final class Main extends JavaPlugin {
 
     private final PluginManager pluginManager = getServer().getPluginManager();
     public static File dataFolder;
-    public static Gson gson = new Gson();
     public static Main INSTANCE;
 
     @Override
@@ -34,7 +32,7 @@ public final class Main extends JavaPlugin {
 
         pluginManager.registerEvents(new ConnectionEvents(), this);
 
-        getCommand("anarchycore").setExecutor(new CoreCmd());
+        getCommand("anarchycmds").setExecutor(new CoreCmd());
         getCommand("discord").setExecutor(new Discord());
         getCommand("gmc").setExecutor(new GMC());
         getCommand("gms").setExecutor(new GMS());
