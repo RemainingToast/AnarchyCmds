@@ -37,6 +37,7 @@ public final class Main extends JavaPlugin {
         getCommand("gmc").setExecutor(new GMC());
         getCommand("gms").setExecutor(new GMS());
         getCommand("gmsp").setExecutor(new GMSP());
+        getCommand("vote").setExecutor(new Vote());
         getCommand("help").setExecutor(new Help());
         getCommand("kill").setExecutor(new Kill());
         getCommand("toggleconnectionmsgs").setExecutor(new ToggleConnectionMsgs());

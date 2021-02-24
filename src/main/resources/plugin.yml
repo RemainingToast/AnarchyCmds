@@ -24,6 +24,8 @@ commands:
     description: Spectator Alias
   help:
     description: Get some help, you obviously need it.
+  vote:
+    description: Support the server
   vanish:
     description: Go VANISH
   playtime:

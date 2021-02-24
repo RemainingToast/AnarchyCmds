@@ -28,10 +28,14 @@ public class ConnectionEvents implements Listener {
             ToggleConnectionMsgs.toggled.putIfAbsent(player.getUniqueId().toString(), true);
             if(ToggleConnectionMsgs.toggled.get(player.getUniqueId().toString())){
                 try {
-                    String joinMsg = Main.INSTANCE.getConfig().getString("messages.join-message");
-                    if(joinMsg == null || joinMsg.equalsIgnoreCase("")) return;
-                    joinMsg = joinMsg.replace("%player%", p.getName());
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', joinMsg));
+                    if(Main.INSTANCE.getConfig().getBoolean("connection-msgs")){
+                        String joinMsg = Main.INSTANCE.getConfig().getString("messages.join-message");
+                        if(joinMsg == null || joinMsg.equalsIgnoreCase("")) return;
+                        joinMsg = joinMsg.replace("%player%", p.getName());
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', joinMsg));
+                    } else {
+                        player.sendMessage(e.getJoinMessage());
+                    }
                 } catch (Exception ex) {
                     System.out.println(ex.toString());
                 }
@@ -44,10 +48,12 @@ public class ConnectionEvents implements Listener {
         e.setQuitMessage(null);
         for (Player player : Bukkit.getOnlinePlayers()){
             if (ToggleConnectionMsgs.toggled.get(player.getUniqueId().toString())){
-                String quitMsg = Main.INSTANCE.getConfig().getString("messages.quit-message");
-                if (quitMsg == null || quitMsg.equalsIgnoreCase("")) return;
-                quitMsg = quitMsg.replace("%player%", e.getPlayer().getName());
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&', quitMsg));
+                if(Main.INSTANCE.getConfig().getBoolean("connection-msgs")) {
+                    String quitMsg = Main.INSTANCE.getConfig().getString("messages.quit-message");
+                    if (quitMsg == null || quitMsg.equalsIgnoreCase("")) return;
+                    quitMsg = quitMsg.replace("%player%", e.getPlayer().getName());
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', quitMsg));
+                } else player.sendMessage(e.getQuitMessage());
             }
             if(Main.INSTANCE.isVanished(player)) Util.unvanishPlayer(player);
         }

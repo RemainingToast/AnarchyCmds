@@ -3,9 +3,11 @@ debug: false
 gamemode-aliases-cmd: true
 toggle-connection-msgs-cmd: true
 help-command: true
+vote-command: true
 discord-command: true
 kill-command: true
 in-game-motd: true
+connection-msgs: true
 messages:
   connection-cmd-on: "&aConnection messages are now SHOWN"
   connection-cmd-off: "&cConnection messages are now HIDDEN"
@@ -27,4 +29,8 @@ messages:
     - "&3/vote - Vote for the server 8hrs of namecolour each link"
     - "&3/discord - Official Link"
     - "&3/kill - Kill yourself."
+    - "&6-----------------------------------------------------"
+  vote-message:
+    - "&6-----------------------------------------------------"
+    - "&3VOTEURL"
     - "&6-----------------------------------------------------"
